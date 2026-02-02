@@ -6,6 +6,8 @@ Membres du projet:
 3. Félice GUEUSSET
 4. Aly Rida MAHJOUB
 
+Date limite: 10 avril 2026
+
 Description détaillée : 
 Point Zéro est une réinterprétation moderne et stratégique du jeu classique de la Bataille Navale. Tout en conservant les règles fondamentales qui ont fait le succès du jeu original, ce projet introduit un système économique et de nouvelles mécaniques qui transforment chaque partie.
 Au-delà de la simple grille de coordonnées, Point Zéro propose une expérience enrichie par des éléments tactiques et visuels :
