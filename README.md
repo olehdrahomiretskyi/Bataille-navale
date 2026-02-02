@@ -6,5 +6,12 @@ Membres du projet:
 3. Félice GUEUSSET
 4. Aly Rida MAHJOUB
 
-Description du projet: 
-Le Point Zéro c'est un jeu de bataille navale classique avec quelques modifications visuelles et esthétiques. 
+Description détaillée : 
+Point Zéro est une réinterprétation moderne et stratégique du jeu classique de la Bataille Navale. Tout en conservant les règles fondamentales qui ont fait le succès du jeu original, ce projet introduit un système économique et de nouvelles mécaniques qui transforment chaque partie.
+Au-delà de la simple grille de coordonnées, Point Zéro propose une expérience enrichie par des éléments tactiques et visuels :
+Gestion de ressources : Le joueur accumule des crédits en effectuant des attaques classiques. Ces crédits servent de monnaie d'échange indispensable pour acheter des « super-attaques » dévastatrices.
+Arsenal étendu : Grâce aux crédits accumulés, les joueurs peuvent débloquer des armes spéciales permettant de cibler plusieurs cases simultanément ou de détruire les navires plus efficacement.
+Guerre des mines : L'introduction de mines marines ajoute une couche de danger et de bluff, forçant l'adversaire à la prudence lors de ses déplacements ou tirs.
+Systèmes défensifs : Pour contrer les attaques, les joueurs peuvent déployer des structures de protection, augmentant la durabilité de leur flotte.
+Personnalisation visuelle (Skins) : Le jeu intègre un système de skins varié, permettant aux joueurs de personnaliser l'apparence de leurs navires et du plateau de jeu selon leurs goûts.
+Ce projet, vise à offrir une version "2.0" du jeu de société, alliant gestion économique, tactique militaire et style unique.
