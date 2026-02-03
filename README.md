@@ -9,7 +9,9 @@ Membres du projet:
 Date limite: 10 avril 2026
 
 Description détaillée : 
+
 Point Zéro est une réinterprétation moderne et stratégique du jeu classique de la Bataille Navale. Tout en conservant les règles fondamentales qui ont fait le succès du jeu original, ce projet introduit un système économique et de nouvelles mécaniques qui transforment chaque partie.
+Le projet s'appuie sur une interface 2D épurée et réactive, développée avec la bibliothèque SDL3. Ce choix technique garantit une fluidité exemplaire des animations et une gestion optimale du système de skins, tout en offrant une expérience visuelle moderne qui modernise radicalement l'aspect statique de la bataille navale traditionnelle.
 Au-delà de la simple grille de coordonnées, Point Zéro propose une expérience enrichie par des éléments tactiques et visuels :
 Gestion de ressources : Le joueur accumule des crédits en effectuant des attaques classiques. Ces crédits servent de monnaie d'échange indispensable pour acheter des « super-attaques » dévastatrices.
 Arsenal étendu : Grâce aux crédits accumulés, les joueurs peuvent débloquer des armes spéciales permettant de cibler plusieurs cases simultanément ou de détruire les navires plus efficacement.
