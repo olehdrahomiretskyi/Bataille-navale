@@ -27,18 +27,6 @@ Guide d'installation :
 
 !!! Les bibliotheques SDL2 doivent etre installees
 
-CONTENU DE L'ARCHIVE >>
-
-common.h    — types et constantes partages
-logic.h     — declarations de la logique de jeu
-logic.c     — logique du jeu, IA, sauvegarde
-render.h    — declarations du rendu graphique
-render.c    — tout le rendu SDL2 (grilles, menus, themes)
-main.c      — boucle principale, gestion des evenements
-Makefile    — fichier de compilation
-font.ttf    — police d'ecriture (doit rester dans le meme dossier)
-
-
 COMPILATION ET LANCEMENT >>
 
 1. Extraire l'archive dans un dossier
