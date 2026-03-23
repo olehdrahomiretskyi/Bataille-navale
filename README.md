@@ -36,9 +36,12 @@ COMPILATION ET LANCEMENT >>
 
 Le fichier records.dat sera cree automatiquement
   au premier lancement (sauvegarde des scores).
+  
 Toutes les explications a propos de deplacement sont
   indiquées dans le jeu.
+  
 Pour quitter le jeu en mode plein ecran : bouton QUITTER
   dans le menu principal, ou Alt+F4.
+  
 
 
