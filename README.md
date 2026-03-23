@@ -7,6 +7,7 @@ Membres du projet:
 Date limite: 10 avril 2026
 
 Diagrame de Gantt Provisionelle >> https://docs.google.com/spreadsheets/d/1IqbCmA31hAxSB0njCKjtLSsNYLb4gT-OUikucNKHJD8/edit?usp=sharing
+
 Diagrame de Gnatt Reéle >> https://docs.google.com/spreadsheets/d/1W8gmvHZU9V74IEWx6prfptLu3vMO4HS02HlB6MIEWSU/edit?usp=sharing
 
 Description détaillée : 
@@ -28,14 +29,14 @@ Guide d'installation :
 
 CONTENU DE L'ARCHIVE >>
 
-    common.h    — types et constantes partages
-    logic.h     — declarations de la logique de jeu
-    logic.c     — logique du jeu, IA, sauvegarde
-    render.h    — declarations du rendu graphique
-    render.c    — tout le rendu SDL2 (grilles, menus, themes)
-    main.c      — boucle principale, gestion des evenements
-    Makefile    — fichier de compilation
-    font.ttf    — police d'ecriture (doit rester dans le meme dossier)
+common.h    — types et constantes partages
+logic.h     — declarations de la logique de jeu
+logic.c     — logique du jeu, IA, sauvegarde
+render.h    — declarations du rendu graphique
+render.c    — tout le rendu SDL2 (grilles, menus, themes)
+main.c      — boucle principale, gestion des evenements
+Makefile    — fichier de compilation
+font.ttf    — police d'ecriture (doit rester dans le meme dossier)
 
 
 COMPILATION ET LANCEMENT >>
