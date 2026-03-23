@@ -6,6 +6,8 @@ Membres du projet:
 
 Date limite: 10 avril 2026
 
+Diagrame de Gantt Provisionelle >> https://docs.google.com/spreadsheets/d/1IqbCmA31hAxSB0njCKjtLSsNYLb4gT-OUikucNKHJD8/edit?usp=sharing
+Diagrame de Gnatt Reéle >> https://docs.google.com/spreadsheets/d/1W8gmvHZU9V74IEWx6prfptLu3vMO4HS02HlB6MIEWSU/edit?usp=sharing
 
 Description détaillée : 
 
@@ -18,3 +20,36 @@ Guerre des mines : L'introduction de mines marines ajoute une couche de danger e
 Systèmes défensifs : Pour contrer les attaques, les joueurs peuvent déployer des structures de protection, augmentant la durabilité de leur flotte.
 Personnalisation visuelle (Skins) : Le jeu intègre un système de skins varié, permettant aux joueurs de personnaliser l'apparence de leurs navires et du plateau de jeu selon leurs goûts.
 Ce projet, vise à offrir une version "2.0" du jeu de société, alliant gestion économique, tactique militaire et style unique.
+
+
+Guide d'installation :
+
+!!! Les bibliotheques SDL2 doivent etre installees
+
+CONTENU DE L'ARCHIVE >>
+
+    common.h    — types et constantes partages
+    logic.h     — declarations de la logique de jeu
+    logic.c     — logique du jeu, IA, sauvegarde
+    render.h    — declarations du rendu graphique
+    render.c    — tout le rendu SDL2 (grilles, menus, themes)
+    main.c      — boucle principale, gestion des evenements
+    Makefile    — fichier de compilation
+    font.ttf    — police d'ecriture (doit rester dans le meme dossier)
+
+
+COMPILATION ET LANCEMENT >>
+
+1. Extraire l'archive dans un dossier
+2. Ouvrir un terminal dans ce dossier
+3. Compiler avec make
+4. Lancer avec ./battleship
+
+Le fichier records.dat sera cree automatiquement
+  au premier lancement (sauvegarde des scores).
+Toutes les explications a propos de deplacement sont
+  indiquées dans le jeu.
+Pour quitter le jeu en mode plein ecran : bouton QUITTER
+  dans le menu principal, ou Alt+F4.
+
+
