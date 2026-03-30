@@ -347,9 +347,6 @@ void ProcessCPUTurn(GameBoard* player, bool* playerTurn,
     }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   STATS
-   ═══════════════════════════════════════════════════════════════════ */
 
 void LoadStats(GameStats* s) {
     s->wins = 0; s->losses = 0; s->bestMoves = 9999; s->coins = 0;
