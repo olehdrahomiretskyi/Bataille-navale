@@ -2,9 +2,6 @@
 
 static const int SCHEMA[10] = {4,3,3,2,2,2,1,1,1,1};
 
-/* ═══════════════════════════════════════════════════════════════════
-   BOARD UTILITIES
-   ═══════════════════════════════════════════════════════════════════ */
 
 void ClearBoard(GameBoard* b) {
     for (int r = 0; r < GRID_SIZE; r++)
@@ -56,9 +53,6 @@ bool IsPointInRect(int x, int y, SDL_Rect rect) {
            y >= rect.y && y <= rect.y+rect.h;
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   SUNK DETECTION
-   ═══════════════════════════════════════════════════════════════════ */
 
 static bool ShipIsSunk(GameBoard* b, int r, int c) {
     int dr[] = {0,0,1,-1};
@@ -111,19 +105,6 @@ int CheckSunkShips(GameBoard* b) {
                 return MarkSunk(b, r, c);
     return 0;
 }
-
-/* ═══════════════════════════════════════════════════════════════════
-   AI — completely rewritten
-
-   KEY INSIGHT: player->cells contains CELL_SHIP for ships (hidden from
-   renderer but fully accessible to the AI logic). A "shootable" cell is
-   one that is CELL_EMPTY or CELL_SHIP and has not been shot yet.
-   CELL_MISS and CELL_HIT mean the cell was already shot.
-
-   FACILE : random among unshot cells
-   NORMAL : random hunt; after hit → push 4 neighbours; finish ship first
-   EXPERT : probability-density hunt; after hit → direction-locked targeting
-   ═══════════════════════════════════════════════════════════════════ */
 
 void InitCPUState(CPUState* cpu) {
     cpu->size        = 0;
@@ -319,10 +300,6 @@ void ProcessCPUTurn(GameBoard* player, bool* playerTurn,
         RandomUnshot(player, &r, &c);
 
     } else {
-        /* ── NORMAL / EXPERT ──
-           Phase 1: pop a valid target from the stack (targeting mode)
-           Phase 2: if stack empty, check for orphaned HITs and recover
-           Phase 3: if still nothing, go to hunt mode               */
         bool found = PopValid(cpu, player, &r, &c);
 
         if (!found) {
@@ -347,7 +324,7 @@ void ProcessCPUTurn(GameBoard* player, bool* playerTurn,
         }
     }
 
-    /* ── Fire at (r, c) ── */
+    
     CellState target = player->cells[r][c];
 
     if (target == CELL_SHIP) {
