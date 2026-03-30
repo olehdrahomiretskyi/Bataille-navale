@@ -34,7 +34,7 @@ COMPILATION ET LANCEMENT >>
 3. Compiler avec make
 4. Lancer avec ./battleship
 
-Le fichier records.dat sera cree automatiquement
+Le fichier records.dat sera créé automatiquement
   au premier lancement (sauvegarde des scores).
   
 Toutes les explications a propos de deplacement sont
