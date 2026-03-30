@@ -42,7 +42,6 @@ int main(int argc,char* argv[]){
     SDL_RenderSetLogicalSize(ren, WINDOW_W, WINDOW_H);  /* scale to any screen size */
     TTF_Font*     font=TTF_OpenFont("lib/font.ttf",24);
 
-    /* ── State ── */
     GameBoard player,enemy; CPUState cpu;
     GameMode  mode=MODE_SPLASH;
     bool  quit=false,playerTurn=true,playerWon=false,isV=false;
@@ -60,7 +59,6 @@ int main(int argc,char* argv[]){
     const char* dnames[]={"FACILE","NORMAL","EXPERT"};
     const char* snames[]={"Ocean","Nuit","Arctique","Rouge","Or","Foret","Plasma","Glace"};
 
-    /* ── Main menu ── */
     int bx=658,bw=430,bh=64,bg2=16;
     Button bPlay,bShop,bSettings,bRecords,bQuit;
     MkBtn(&bPlay,    bx,210+0*(bh+bg2),bw,bh, 30,110, 45,"  JOUER");
@@ -69,14 +67,12 @@ int main(int argc,char* argv[]){
     MkBtn(&bRecords, bx,210+3*(bh+bg2),bw,bh,100, 80, 25,"  RECORDS");
     MkBtn(&bQuit,    bx,210+4*(bh+bg2),bw,bh,120, 30, 30,"  QUITTER");
 
-    /* ── Settings ── */
     int spx=WINDOW_W/2-220,spy=200;
     Button bDiff,bSkin,bSettBack;
     MkBtn(&bDiff,    spx,spy,    440,58, 45,55,140,"Difficulte: NORMAL");
     MkBtn(&bSkin,    spx,spy+110,440,58, 80,55,120,"Theme actif: Ocean");
     MkBtn(&bSettBack,spx,spy+320,440,58, 60,50,110,"< RETOUR");
 
-    /* ── Shop ── */
     static const int SKIN_PRICES[NUM_SKINS]={0,0,750,1500,2500,1000,2000,1750};
     /* Shop card buttons: 4 cols x 2 rows, matching render.c layout */
     /* render.c: px=80, py=60, cw=168, ch=175, smx=px+20=100, smy=py+60=120, smg=12 */
@@ -94,7 +90,6 @@ int main(int argc,char* argv[]){
     Button bShopBack;
     MkBtn(&bShopBack,WINDOW_W/2-110,680,220,50, 60,50,110,"< RETOUR");
 
-    /* ── Placement ── */
     int px2=E_OFFSET_X;
     Button bRand,bReset,bPret,bPlaceBack;
     MkBtn(&bRand,     px2+5,  OFFSET_Y+GRID_SIZE*CELL_SIZE+18,195,48, 35, 80,140,"ALEATOIRE");
@@ -102,16 +97,13 @@ int main(int argc,char* argv[]){
     MkBtn(&bPret,     px2+205,OFFSET_Y+GRID_SIZE*CELL_SIZE+18,200,102, 30,100, 50,"PRET !");
     MkBtn(&bPlaceBack,P_OFFSET_X,OFFSET_Y+GRID_SIZE*CELL_SIZE+18,160,48, 80,40,40,"< MENU");
 
-    /* ── Game over ── */
     Button bReplay,bMenu2;
     MkBtn(&bReplay,WINDOW_W/2-230,WINDOW_H/2+80,210,54, 35, 80,150,"REJOUER");
     MkBtn(&bMenu2, WINDOW_W/2+ 20,WINDOW_H/2+80,210,54,100, 50, 30,"MENU");
 
-    /* In-game exit button (top-right corner) */
     Button bExit;
     MkBtn(&bExit, WINDOW_W-140, 10, 130, 38, 110, 25, 25, "< MENU");
 
-    /* ── Records ── */
     Button bRecBack;
     MkBtn(&bRecBack,WINDOW_W/2-110,WINDOW_H/2+160,220,54, 60,55,130,"RETOUR");
 
@@ -251,7 +243,6 @@ int main(int argc,char* argv[]){
             }
         }
 
-        /* ── CPU turn ── */
         if(mode==MODE_GAME&&!playerTurn){
             SDL_Delay(diff==DIFF_FACILE?700:diff==DIFF_NORMAL?450:250);
             ProcessCPUTurn(&player,&playerTurn,&cpu,diff);
@@ -263,7 +254,6 @@ int main(int argc,char* argv[]){
             }
         }
 
-        /* ── Render ── */
         SDL_SetRenderDrawColor(ren,8,12,24,255); SDL_RenderClear(ren);
 
         if(mode==MODE_SPLASH){
