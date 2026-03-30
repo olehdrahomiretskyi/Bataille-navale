@@ -1,7 +1,6 @@
 #include "render.h"
 #include "logic.h"
 
-/* ── 8 Skins ────────────────────────────────────────────────────── */
 typedef struct { SDL_Color bg,water,grid,ship,hit,sunk,miss,near,accent,text,dim; } Skin;
 static const Skin SKINS[NUM_SKINS]={
     /* 0 OCEAN */
@@ -44,7 +43,6 @@ static const Skin* SK(void){return &SKINS[g_skin];}
 static const char* SKIN_NAMES[NUM_SKINS]={"Ocean","Nuit","Arctique","Rouge","Or","Foret","Plasma","Glace"};
 static const int   SKIN_PRICES[NUM_SKINS]={0,0,150,300,500,200,400,350};
 
-/* ── Particles ──────────────────────────────────────────────────── */
 static Particle g_p[MAX_PARTICLES]; static bool g_pInit=false;
 static void InitParts(void){
     for(int i=0;i<MAX_PARTICLES;i++){
@@ -77,7 +75,6 @@ void UpdateParticles(SDL_Renderer* ren){
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
 }
 
-/* ── Primitives ─────────────────────────────────────────────────── */
 static void Fill(SDL_Renderer* r,int x,int y,int w,int h,SDL_Color c){
     SDL_Rect rc={x,y,w,h};
     SDL_SetRenderDrawColor(r,c.r,c.g,c.b,c.a?c.a:255); SDL_RenderFillRect(r,&rc);
