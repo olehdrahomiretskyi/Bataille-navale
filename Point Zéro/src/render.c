@@ -90,7 +90,6 @@ void DrawText(SDL_Renderer* ren,TTF_Font* font,const char* text,int x,int y,SDL_
     SDL_FreeSurface(s); SDL_DestroyTexture(t);
 }
 
-/* ── Button ─────────────────────────────────────────────────────── */
 void DrawButton(SDL_Renderer* ren,TTF_Font* font,Button* b){
     int x=b->rect.x, y=b->rect.y, w=b->rect.w, h=b->rect.h;
     int hi=b->isHovered?55:0;
@@ -164,7 +163,7 @@ void DrawButton(SDL_Renderer* ren,TTF_Font* font,Button* b){
     }
 }
 
-/* ── Coins badge ────────────────────────────────────────────────── */
+
 static void DrawCoins(SDL_Renderer* ren,TTF_Font* font,int coins,int x,int y){
     char buf[32]; snprintf(buf,sizeof(buf),"$ %d",coins);
     Fill(ren,x,y,150,36,(SDL_Color){40,30,5,255});
@@ -172,7 +171,7 @@ static void DrawCoins(SDL_Renderer* ren,TTF_Font* font,int coins,int x,int y){
     DrawText(ren,font,buf,x+12,y+7,(SDL_Color){220,180,40,255});
 }
 
-/* ── SPLASH ─────────────────────────────────────────────────────── */
+
 void DrawSplash(SDL_Renderer* ren,TTF_Font* font,Uint32 ticks){
     SDL_SetRenderDrawColor(ren,8,12,24,255); SDL_RenderClear(ren);
     UpdateParticles(ren);
@@ -201,8 +200,6 @@ void DrawSplash(SDL_Renderer* ren,TTF_Font* font,Uint32 ticks){
                  WINDOW_W/2-168,WINDOW_H/2+60,(SDL_Color){200,220,255,255});
     DrawText(ren,font,"SDL2  |  C11",WINDOW_W/2-58,WINDOW_H-32,(SDL_Color){50,65,95,255});
 }
-
-/* ── MAIN MENU ──────────────────────────────────────────────────── */
 
 void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
                   Button* play,Button* shop,Button* settings,Button* records,Button* quit,
@@ -314,7 +311,6 @@ void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
     DrawCoins(ren,font,coins,WINDOW_W-165,WINDOW_H-50);
 }
 
-/* ── SETTINGS ───────────────────────────────────────────────────── */
 void DrawSettings(SDL_Renderer* ren,TTF_Font* font,Button* diff,Button* skin,Button* back){
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,0,0,10,210);
@@ -332,7 +328,6 @@ void DrawSettings(SDL_Renderer* ren,TTF_Font* font,Button* diff,Button* skin,But
     DrawButton(ren,font,diff); DrawButton(ren,font,skin); DrawButton(ren,font,back);
 }
 
-/* ── SHOP ───────────────────────────────────────────────────────── */
 void DrawShop(SDL_Renderer* ren,TTF_Font* font,
               GameStats* stats,GridSkin activeSkin,
               Button* btnBuy[NUM_SKINS],Button* btnSelect[NUM_SKINS],Button* back){
@@ -380,7 +375,6 @@ void DrawShop(SDL_Renderer* ren,TTF_Font* font,
     DrawButton(ren,font,back);
 }
 
-/* ── BOARD ──────────────────────────────────────────────────────── */
 void DrawBoard(SDL_Renderer* ren,TTF_Font* font,GameBoard* b,
                int ox,int oy,bool hide,bool dimmed){
     const char* COLS="ABCDEFGHIJ"; char buf[4];
@@ -452,7 +446,6 @@ void DrawBoard(SDL_Renderer* ren,TTF_Font* font,GameBoard* b,
     }
 }
 
-/* ── PLACEMENT PREVIEW ──────────────────────────────────────────── */
 void DrawPlacementPreview(SDL_Renderer* ren,GameBoard* b,int ox,int oy,
                            int hR,int hC,int size,bool isV){
     if(hR<0||hR>=GRID_SIZE||hC<0||hC>=GRID_SIZE) return;
@@ -470,7 +463,6 @@ void DrawPlacementPreview(SDL_Renderer* ren,GameBoard* b,int ox,int oy,
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
 }
 
-/* ── PLACEMENT SIDEBAR ──────────────────────────────────────────── */
 void DrawPlacementUI(SDL_Renderer* ren,TTF_Font* font,int placed,
                      Button* bRand,Button* bReset,Button* bPret,Button* bBack){
     static const int schema[10]={4,3,3,2,2,2,1,1,1,1};
@@ -538,7 +530,6 @@ void DrawPlacementUI(SDL_Renderer* ren,TTF_Font* font,int placed,
     }
 }
 
-/* ── GAME HUD ───────────────────────────────────────────────────── */
 void DrawGameUI(SDL_Renderer* ren,TTF_Font* font,GameBoard* p,GameBoard* e,
                 bool playerTurn,int moves,Uint32 startTick,int coins){
     DrawText(ren,font,"VOTRE FLOTTE",  P_OFFSET_X+50,8,SK()->dim);
@@ -572,7 +563,6 @@ void DrawGameUI(SDL_Renderer* ren,TTF_Font* font,GameBoard* p,GameBoard* e,
     Box(ren, E_OFFSET_X+10,by3,220,12,(SDL_Color){160,60,60,255});
 }
 
-/* ── GAME OVER ──────────────────────────────────────────────────── */
 void DrawGameOver(SDL_Renderer* ren,TTF_Font* font,bool win,int moves,
                   int coinsEarned,Button* btnR,Button* btnM){
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
@@ -595,7 +585,6 @@ void DrawGameOver(SDL_Renderer* ren,TTF_Font* font,bool win,int moves,
     DrawButton(ren,font,btnR); DrawButton(ren,font,btnM);
 }
 
-/* ── RECORDS ────────────────────────────────────────────────────── */
 void DrawRecords(SDL_Renderer* ren,TTF_Font* font,GameStats* s,Button* btnBack){
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,0,0,0,195);
