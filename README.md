@@ -6,7 +6,7 @@ Membres du projet:
 
 Date limite: 10 avril 2026
 
-Diagrame de Gantt Provisionel >> https://docs.google.com/spreadsheets/d/1IqbCmA31hAxSB0njCKjtLSsNYLb4gT-OUikucNKHJD8/edit?usp=sharing
+Diagrame de Gantt Prévisionel >> https://docs.google.com/spreadsheets/d/1IqbCmA31hAxSB0njCKjtLSsNYLb4gT-OUikucNKHJD8/edit?usp=sharing
 
 Diagrame de Gantt Réel >> https://docs.google.com/spreadsheets/d/1W8gmvHZU9V74IEWx6prfptLu3vMO4HS02HlB6MIEWSU/edit?usp=sharing
 
