@@ -157,32 +157,49 @@ int main(int argc,char* argv[]){
                         sunkThisGame=0;
                         mode=MODE_PLACEMENT;
                     }
-                    if(bShop.isHovered)     mode=MODE_SHOP;
-                    if(bSettings.isHovered) mode=MODE_SETTINGS;
-                    if(bRecords.isHovered)  mode=MODE_RECORDS;
-                    if(bQuit.isHovered)     quit=true;
+                    if(bShop.isHovered)     
+                      mode=MODE_SHOP;
+                    if(bSettings.isHovered) 
+                      mode=MODE_SETTINGS;
+                    if(bRecords.isHovered)  
+                      mode=MODE_RECORDS;
+                    if(bQuit.isHovered)     
+                      quit=true;
                 }
-                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) quit=true;
+                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) 
+                  quit=true;
 
-            } else if(mode==MODE_SETTINGS){
-                Hover(&bDiff,mx,my);Hover(&bSkin,mx,my);Hover(&bSettBack,mx,my);
+            } 
+            else if(mode==MODE_SETTINGS){
+                Hover(&bDiff,mx,my);
+                Hover(&bSkin,mx,my);
+                Hover(&bSettBack,mx,my);
+              
                 if(ev.type==SDL_MOUSEBUTTONDOWN){
-                    if(bDiff.isHovered){diff=(AIDifficulty)((diff+1)%3);
-                        snprintf(bDiff.label,sizeof(bDiff.label),"Difficulte: %s",dnames[diff]);}
+                    if(bDiff.isHovered){
+                        diff=(AIDifficulty)((diff+1)%3);
+                        snprintf(bDiff.label,sizeof(bDiff.label),"Difficulte: %s",dnames[diff]);
+                    }
                     if(bSkin.isHovered){
                         /* cycle only through unlocked skins */
                         int next=(sk+1)%NUM_SKINS;
-                        while(!stats.unlocked[next]) next=(next+1)%NUM_SKINS;
-                        sk=(GridSkin)next; SetSkin(sk);
+                        while(!stats.unlocked[next]) 
+                          next=(next+1)%NUM_SKINS;
+                      
+                        sk=(GridSkin)next; 
+                        SetSkin(sk);
                         snprintf(bSkin.label,sizeof(bSkin.label),"Theme actif: %s",snames[sk]);
                     }
-                    if(bSettBack.isHovered) mode=MODE_MAINMENU;
+                    if(bSettBack.isHovered) 
+                      mode=MODE_MAINMENU;
                 }
-                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) mode=MODE_MAINMENU;
+                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) 
+                  mode=MODE_MAINMENU;
 
             } else if(mode==MODE_SHOP){
                 for(int i=0;i<NUM_SKINS;i++){
-                    Hover(&btnBuy[i],mx,my); Hover(&btnSel[i],mx,my);
+                    Hover(&btnBuy[i],mx,my); 
+                    Hover(&btnSel[i],mx,my);
                 }
                 Hover(&bShopBack,mx,my);
                 if(ev.type==SDL_MOUSEBUTTONDOWN){
@@ -195,36 +212,60 @@ int main(int argc,char* argv[]){
                             }
                         }
                         if(stats.unlocked[i]&&btnSel[i].isHovered&&(GridSkin)i!=sk){
-                            sk=(GridSkin)i; SetSkin(sk);
+                            sk=(GridSkin)i; 
+                            SetSkin(sk);
                             snprintf(bSkin.label,sizeof(bSkin.label),"Theme actif: %s",snames[sk]);
                         }
                     }
-                    if(bShopBack.isHovered) mode=MODE_MAINMENU;
+                    if(bShopBack.isHovered) 
+                      mode=MODE_MAINMENU;
                 }
-                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) mode=MODE_MAINMENU;
+                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) 
+                  mode=MODE_MAINMENU;
 
-            } else if(mode==MODE_PLACEMENT){
-                Hover(&bRand,mx,my);Hover(&bReset,mx,my);Hover(&bPret,mx,my);Hover(&bPlaceBack,mx,my);
-                if(ev.type==SDL_MOUSEWHEEL) isV=!isV;
+            } 
+            else if(mode==MODE_PLACEMENT){
+                Hover(&bRand,mx,my);
+                Hover(&bReset,mx,my);
+                Hover(&bPret,mx,my);
+                Hover(&bPlaceBack,mx,my);
+              
+                if(ev.type==SDL_MOUSEWHEEL)  
+                  isV=!isV;
+              
                 if(ev.type==SDL_MOUSEBUTTONDOWN){
                     if(ev.button.button==SDL_BUTTON_RIGHT) isV=!isV;
                     else if(ev.button.button==SDL_BUTTON_LEFT){
-                        if(bRand.isHovered){RandomPlaceFull(&player);curIdx=10;}
-                        else if(bReset.isHovered){ClearBoard(&player);curIdx=0;}
+                        if(bRand.isHovered){
+                          RandomPlaceFull(&player);
+                          curIdx=10;
+                        }
+                        else if(bReset.isHovered){
+                          ClearBoard(&player);
+                          curIdx=0;
+                        }
                         else if(bPret.isHovered&&curIdx>=10){
-                            RandomPlaceFull(&enemy);playerTurn=true;
-                            playerMoves=0;sunkThisGame=0;
-                            gameStart=SDL_GetTicks();mode=MODE_GAME;
+                            RandomPlaceFull(&enemy);
+                            playerTurn=true;
+                            playerMoves=0;
+                            sunkThisGame=0;
+                            gameStart=SDL_GetTicks();
+                            mode=MODE_GAME;
                         } else if(curIdx<10){
                             int r=(my-OFFSET_Y)/CELL_SIZE,c=(mx-P_OFFSET_X)/CELL_SIZE;
-                            if(r>=0&&r<GRID_SIZE&&c>=0&&c<GRID_SIZE)
+                            if(r>=0&&r<GRID_SIZE&&c>=0&&c<GRID_SIZE){
                                 if(CanPlaceShip(&player,r,c,ships[curIdx],isV)){
-                                    PlaceShip(&player,r,c,ships[curIdx],isV);curIdx++;}
+                                    PlaceShip(&player,r,c,ships[curIdx],isV);
+                                    curIdx++;
+                                }
+                            }
                         }
                     }
                 }
-                if(bPlaceBack.isHovered&&ev.type==SDL_MOUSEBUTTONDOWN) mode=MODE_MAINMENU;
-                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) mode=MODE_MAINMENU;
+                if(bPlaceBack.isHovered&&ev.type==SDL_MOUSEBUTTONDOWN) 
+                  mode=MODE_MAINMENU;
+                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE)
+                  mode=MODE_MAINMENU;
 
             } else if(mode==MODE_GAME){
                 Hover(&bExit,mx,my);
