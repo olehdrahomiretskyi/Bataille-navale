@@ -192,9 +192,8 @@ void DrawSplash(SDL_Renderer* ren,TTF_Font* font,Uint32 ticks){
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     Box(ren,tx,ty,620,155,(SDL_Color){80,150,255,255});
     Box(ren,tx+2,ty+2,616,151,(SDL_Color){30,60,120,255});
-    DrawText(ren,font,"BATAILLE  NAVALE",WINDOW_W/2-148,ty+18,(SDL_Color){255,255,255,255});
+    DrawText(ren,font,"POINT ZERO",WINDOW_W/2-130,ty+18,(SDL_Color){255,255,255,255});
     DrawText(ren,font,"~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~",WINDOW_W/2-162,ty+62,(SDL_Color){80,150,255,255});
-    DrawText(ren,font,"Naval Combat v4.0",WINDOW_W/2-105,ty+98,(SDL_Color){130,150,185,255});
     if((ticks/600)%2==0)
         DrawText(ren,font,"[ APPUYEZ SUR UNE TOUCHE ]",
                  WINDOW_W/2-168,WINDOW_H/2+60,(SDL_Color){200,220,255,255});
@@ -213,7 +212,7 @@ void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
     SDL_Rect tp={WINDOW_W/2-240,38,480,80}; SDL_RenderFillRect(ren,&tp);
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     Box(ren,tp.x,tp.y,tp.w,tp.h,acc);
-    DrawText(ren,font,"BATAILLE  NAVALE",WINDOW_W/2-150,52,SK()->text);
+    DrawText(ren,font,"POINT ZERO",WINDOW_W/2-150,52,SK()->text);
     DrawText(ren,font,"~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~",WINDOW_W/2-153,88,acc);
 
     /* Left panel: mini grid */
@@ -223,7 +222,7 @@ void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
     SDL_Rect lp={lx,ly,520,560}; SDL_RenderFillRect(ren,&lp);
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     Box(ren,lx,ly,520,560,acc);
-    DrawText(ren,font,"BATAILLE  NAVALE",lx+42,ly+20,SK()->text);
+    DrawText(ren,font,"POINT ZERO",lx+42,ly+20,SK()->text);
     SDL_SetRenderDrawColor(ren,acc.r,acc.g,acc.b,255);
     SDL_RenderDrawLine(ren,lx+10,ly+56,lx+380,ly+56);
     static const char PAT[8][8]={{0,0,1,1,1,0,0,0},{0,0,0,0,0,0,1,0},
@@ -511,7 +510,7 @@ void DrawPlacementUI(SDL_Renderer* ren,TTF_Font* font,int placed,
     }
 
     /* Hint text */
-    DrawText(ren,font,"Molette / Clic D = rotation",sx+8,btn_y1-30,SK()->dim);
+    DrawText(ren,font,"Clic droit souris = rotation",sx+200,btn_y1-50,SK()->dim);
 
     /* Buttons */
     DrawButton(ren,font,bBack);
@@ -524,7 +523,8 @@ void DrawPlacementUI(SDL_Renderer* ren,TTF_Font* font,int placed,
         Button ghost=*bPret; ghost.color=gc; ghost.isHovered=false;
         DrawButton(ren,font,&ghost);
         /* Overlay text */
-        char buf[32]; snprintf(buf,sizeof(buf),"Placez %d navires",10-placed);
+        char buf[32]; 
+        snprintf(buf,sizeof(buf)," ");
         int tw=SDL_max(1,bPret->rect.w);
         DrawText(ren,font,buf,bPret->rect.x+tw/2-80,bPret->rect.y+13,SK()->dim);
     }
@@ -576,9 +576,9 @@ void DrawGameOver(SDL_Renderer* ren,TTF_Font* font,bool win,int moves,
     char buf[64];
     if(win){snprintf(buf,sizeof(buf),"Coule en %d coups !",moves);
             DrawText(ren,font,buf,px+90,py+72,SK()->text);}
-    else DrawText(ren,font,"Votre flotte a ete coulee...",px+50,py+72,SK()->text);
+    else DrawText(ren,font,"Votre flotte a ete coulée...",px+50,py+72,SK()->text);
     if(coinsEarned>0){
-        snprintf(buf,sizeof(buf),"+ %d pieces gagnees !",coinsEarned);
+        snprintf(buf,sizeof(buf),"+ %d pièces gagnées !",coinsEarned);
         DrawText(ren,font,buf,px+90,py+110,(SDL_Color){220,180,40,255});
     }
     DrawText(ren,font,"ESPACE = rejouer",px+140,py+155,SK()->dim);
