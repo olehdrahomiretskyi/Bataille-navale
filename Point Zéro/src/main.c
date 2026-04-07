@@ -52,7 +52,9 @@ int main(int argc,char* argv[]){
     GridSkin sk=SKIN_OCEAN;
     GameStats stats; LoadStats(&stats);
     /* Restore active skin */
-    for(int i=0;i<NUM_SKINS;i++) if(stats.unlocked[i]) sk=(GridSkin)i;
+    for(int i=0;i<NUM_SKINS;i++) 
+      if(stats.unlocked[i]) 
+        sk=(GridSkin)i;
     sk=SKIN_OCEAN; /* default to ocean on start */
     SetSkin(sk);
 
@@ -113,25 +115,48 @@ int main(int argc,char* argv[]){
         SDL_Event ev;
         int mx,my;
         {
-            int wx,wy; SDL_GetMouseState(&wx,&wy);
-            float lx,ly; SDL_RenderWindowToLogical(ren,wx,wy,&lx,&ly);
-            mx=(int)lx; my=(int)ly;
+            int wx,wy; 
+            SDL_GetMouseState(&wx,&wy);
+          
+            float lx,ly; 
+            SDL_RenderWindowToLogical(ren,wx,wy,&lx,&ly);
+          
+            mx=(int)lx; 
+            my=(int)ly;
         }
         if(mode==MODE_PLACEMENT){hR=(my-OFFSET_Y)/CELL_SIZE;hC=(mx-P_OFFSET_X)/CELL_SIZE;}
 
         while(SDL_PollEvent(&ev)){
-            if(ev.type==SDL_QUIT){quit=true;break;}
+            if(ev.type==SDL_QUIT){
+              quit=true;
+              break;
+            }
 
             if(mode==MODE_SPLASH){
-                if(ev.type==SDL_KEYDOWN||ev.type==SDL_MOUSEBUTTONDOWN) mode=MODE_MAINMENU;
+                if(ev.type==SDL_KEYDOWN||ev.type==SDL_MOUSEBUTTONDOWN) 
+                  mode=MODE_MAINMENU;
 
             } else if(mode==MODE_MAINMENU){
-                Hover(&bPlay,mx,my);Hover(&bShop,mx,my);Hover(&bSettings,mx,my);
-                Hover(&bRecords,mx,my);Hover(&bQuit,mx,my);
+                Hover(&bPlay,mx,my);
+                Hover(&bShop,mx,my);
+                Hover(&bSettings,mx,my);
+              
+                Hover(&bRecords,mx,my);
+                Hover(&bQuit,mx,my);
+              
                 if(ev.type==SDL_MOUSEBUTTONDOWN){
-                    if(bPlay.isHovered){ClearBoard(&player);ClearBoard(&enemy);
-                        InitCPUState(&cpu);curIdx=0;isV=false;
-                        playerMoves=0;sunkThisGame=0;mode=MODE_PLACEMENT;}
+                    if(bPlay.isHovered){
+                        ClearBoard(&player);
+                        ClearBoard(&enemy);
+                      
+                        InitCPUState(&cpu);
+                        curIdx=0;
+                        isV=false;
+                      
+                        playerMoves=0;
+                        sunkThisGame=0;
+                        mode=MODE_PLACEMENT;
+                    }
                     if(bShop.isHovered)     mode=MODE_SHOP;
                     if(bSettings.isHovered) mode=MODE_SETTINGS;
                     if(bRecords.isHovered)  mode=MODE_RECORDS;
