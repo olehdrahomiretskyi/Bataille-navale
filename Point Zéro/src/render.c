@@ -1,7 +1,10 @@
 #include "render.h"
 #include "logic.h"
 
-typedef struct { SDL_Color bg,water,grid,ship,hit,sunk,miss,near,accent,text,dim; } Skin;
+typedef struct { 
+    SDL_Color bg,water,grid,ship,hit,sunk,miss,near,accent,text,dim; 
+} Skin;
+
 static const Skin SKINS[NUM_SKINS]={
     /* 0 OCEAN */
     {{10,15,30,255},{18,36,62,255},{40,65,110,255},{80,110,160,255},
@@ -37,21 +40,33 @@ static const Skin SKINS[NUM_SKINS]={
      {90,160,230,255},{15,20,40,255},{80,110,150,255}}
 };
 static GridSkin g_skin=SKIN_OCEAN;
-void SetSkin(GridSkin s){g_skin=s;}
-static const Skin* SK(void){return &SKINS[g_skin];}
+void SetSkin(GridSkin s){
+    g_skin=s;
+}
+static const Skin* SK(void){
+    return &SKINS[g_skin];
+}
 
 static const char* SKIN_NAMES[NUM_SKINS]={"Ocean","Nuit","Arctique","Rouge","Or","Foret","Plasma","Glace"};
 static const int   SKIN_PRICES[NUM_SKINS]={0,0,150,300,500,200,400,350};
 
-static Particle g_p[MAX_PARTICLES]; static bool g_pInit=false;
+static Particle g_p[MAX_PARTICLES]; 
+static bool g_pInit=false;
+
 static void InitParts(void){
     for(int i=0;i<MAX_PARTICLES;i++){
-        g_p[i].x=(float)(rand()%WINDOW_W); g_p[i].y=(float)(rand()%WINDOW_H);
+        g_p[i].x=(float)(rand()%WINDOW_W); 
+        g_p[i].y=(float)(rand()%WINDOW_H);
+        
         float a=(float)(rand()%628)/100.f,sp=0.15f+(rand()%25)/100.f;
-        g_p[i].vx=cosf(a)*sp; g_p[i].vy=sinf(a)*sp;
-        g_p[i].r=60+rand()%60; g_p[i].g=100+rand()%80; g_p[i].b=180+rand()%75;
+        g_p[i].vx=cosf(a)*sp; 
+        g_p[i].vy=sinf(a)*sp;
+        g_p[i].r=60+rand()%60; 
+        g_p[i].g=100+rand()%80; 
+        g_p[i].b=180+rand()%75;
         g_p[i].alpha=(float)(40+rand()%40)/100.f;
-    } g_pInit=true;
+    } 
+    g_pInit=true;
 }
 void UpdateParticles(SDL_Renderer* ren){
     if(!g_pInit) InitParts();
