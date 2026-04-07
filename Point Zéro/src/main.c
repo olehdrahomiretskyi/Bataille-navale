@@ -270,42 +270,65 @@ int main(int argc,char* argv[]){
             } else if(mode==MODE_GAME){
                 Hover(&bExit,mx,my);
                 if(playerTurn&&ev.type==SDL_MOUSEBUTTONDOWN){
-                    if(bExit.isHovered){ mode=MODE_MAINMENU; break; }
+                    if(bExit.isHovered){ 
+                      mode=MODE_MAINMENU;
+                      break; 
+                    }
                     int c=(mx-E_OFFSET_X)/CELL_SIZE,r=(my-OFFSET_Y)/CELL_SIZE;
                     if(mx>=E_OFFSET_X&&r>=0&&r<GRID_SIZE&&c>=0&&c<GRID_SIZE){
                         CellState cs=enemy.cells[r][c];
                         if(cs==CELL_SHIP){
-                            enemy.cells[r][c]=CELL_HIT; enemy.shipsLeft--;
-                            int sz=CheckSunkShips(&enemy); playerMoves++;
-                            if(sz>0) sunkThisGame++;
+                            enemy.cells[r][c]=CELL_HIT; 
+                            enemy.shipsLeft--;
+                            int sz=CheckSunkShips(&enemy); 
+                            playerMoves++;
+                            if(sz>0) 
+                              sunkThisGame++;
                             if(enemy.shipsLeft<=0){
-                                playerWon=true; stats.wins++;
-                                if(playerMoves<stats.bestMoves) stats.bestMoves=playerMoves;
+                                playerWon=true;
+                                stats.wins++;
+                                if(playerMoves<stats.bestMoves) 
+                                  stats.bestMoves=playerMoves;
+                              
                                 lastCoinsEarned=CalcCoins(true,sunkThisGame,diff);
                                 stats.coins+=lastCoinsEarned;
-                                SaveStats(&stats); mode=MODE_GAMEOVER;
+                                SaveStats(&stats); 
+                              mode=MODE_GAMEOVER;
                             }
                         } else if(cs==CELL_EMPTY){
                             enemy.cells[r][c]=CELL_MISS;
-                            playerMoves++; playerTurn=false;
+                            playerMoves++; 
+                            playerTurn=false;
                         }
                     }
                 }
-                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) mode=MODE_MAINMENU;
+                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) 
+                  mode=MODE_MAINMENU;
 
             } else if(mode==MODE_GAMEOVER){
-                Hover(&bReplay,mx,my);Hover(&bMenu2,mx,my);
+                Hover(&bReplay,mx,my);
+                Hover(&bMenu2,mx,my);
                 if((ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_SPACE)||
                    (ev.type==SDL_MOUSEBUTTONDOWN&&bReplay.isHovered)){
-                    ClearBoard(&player);ClearBoard(&enemy);InitCPUState(&cpu);
-                    curIdx=0;isV=false;playerMoves=0;sunkThisGame=0;mode=MODE_PLACEMENT;
+                    ClearBoard(&player);
+                    ClearBoard(&enemy);
+                    InitCPUState(&cpu);
+                  
+                    curIdx=0;
+                    isV=false;
+                    playerMoves=0;
+                    sunkThisGame=0;
+                    mode=MODE_PLACEMENT;
                 }
-                if(ev.type==SDL_MOUSEBUTTONDOWN&&bMenu2.isHovered) mode=MODE_MAINMENU;
+                if(ev.type==SDL_MOUSEBUTTONDOWN&&bMenu2.isHovered) 
+                  mode=MODE_MAINMENU;
 
             } else if(mode==MODE_RECORDS){
                 Hover(&bRecBack,mx,my);
-                if(ev.type==SDL_MOUSEBUTTONDOWN&&bRecBack.isHovered) mode=MODE_MAINMENU;
-                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) mode=MODE_MAINMENU;
+                if(ev.type==SDL_MOUSEBUTTONDOWN&&bRecBack.isHovered) 
+                  mode=MODE_MAINMENU;
+                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) 
+                  mode=MODE_MAINMENU;
             }
         }
 
@@ -313,14 +336,19 @@ int main(int argc,char* argv[]){
             SDL_Delay(diff==DIFF_FACILE?700:diff==DIFF_NORMAL?450:250);
             ProcessCPUTurn(&player,&playerTurn,&cpu,diff);
             if(player.shipsLeft<=0){
-                playerWon=false; stats.losses++;
+                playerWon=false; 
+                stats.losses++;
+              
                 lastCoinsEarned=CalcCoins(false,sunkThisGame,diff);
                 stats.coins+=lastCoinsEarned;
-                SaveStats(&stats); mode=MODE_GAMEOVER;
+              
+                SaveStats(&stats); 
+                mode=MODE_GAMEOVER;
             }
         }
 
-        SDL_SetRenderDrawColor(ren,8,12,24,255); SDL_RenderClear(ren);
+        SDL_SetRenderDrawColor(ren,8,12,24,255); 
+        SDL_RenderClear(ren);
 
         if(mode==MODE_SPLASH){
             DrawSplash(ren,font,SDL_GetTicks());
@@ -356,6 +384,9 @@ int main(int argc,char* argv[]){
         }
         SDL_RenderPresent(ren);
     }
-    TTF_CloseFont(font); TTF_Quit(); SDL_Quit();
+  
+    TTF_CloseFont(font); 
+    TTF_Quit(); 
+    SDL_Quit();
     return 0;
 }
