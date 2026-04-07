@@ -69,40 +69,56 @@ static void InitParts(void){
     g_pInit=true;
 }
 void UpdateParticles(SDL_Renderer* ren){
-    if(!g_pInit) InitParts();
+    if(!g_pInit) 
+        InitParts();
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     for(int i=0;i<MAX_PARTICLES;i++){
         Particle* p=&g_p[i];
-        p->x+=p->vx; p->y+=p->vy;
-        if(p->x < 0)       p->x += WINDOW_W;
-        if(p->x > WINDOW_W) p->x -= WINDOW_W;
-        if(p->y < 0)       p->y += WINDOW_H;
-        if(p->y > WINDOW_H) p->y -= WINDOW_H;
+        p->x+=p->vx; 
+        p->y+=p->vy;
+        if(p->x < 0)       
+            p->x += WINDOW_W;
+        if(p->x > WINDOW_W) 
+            p->x -= WINDOW_W;
+        if(p->y < 0)      
+            p->y += WINDOW_H;
+        if(p->y > WINDOW_H) 
+            p->y -= WINDOW_H;
         for(int j=i+1;j<MAX_PARTICLES;j++){
-            float dx=g_p[j].x-p->x,dy=g_p[j].y-p->y,d=sqrtf(dx*dx+dy*dy);
-            if(d<85.f){Uint8 a=(Uint8)((1.f-d/85.f)*45.f);
+            float dx = g_p[j].x-p->x, dy = g_p[j].y-p->y, d = sqrtf(dx*dx+dy*dy);
+            if(d<85.f){
+                Uint8 a=(Uint8)((1.f-d/85.f)*45.f);
+                
                 SDL_SetRenderDrawColor(ren,(Uint8)p->r,(Uint8)p->g,(Uint8)p->b,a);
-                SDL_RenderDrawLine(ren,(int)p->x,(int)p->y,(int)g_p[j].x,(int)g_p[j].y);}
+                SDL_RenderDrawLine(ren,(int)p->x,(int)p->y,(int)g_p[j].x,(int)g_p[j].y);
+            }
         }
         SDL_SetRenderDrawColor(ren,(Uint8)p->r,(Uint8)p->g,(Uint8)p->b,(Uint8)(p->alpha*200.f));
-        SDL_Rect dot={(int)p->x-2,(int)p->y-2,4,4}; SDL_RenderFillRect(ren,&dot);
+        SDL_Rect dot={(int)p->x-2,(int)p->y-2,4,4}; 
+        SDL_RenderFillRect(ren,&dot);
     }
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
 }
 
 static void Fill(SDL_Renderer* r,int x,int y,int w,int h,SDL_Color c){
     SDL_Rect rc={x,y,w,h};
-    SDL_SetRenderDrawColor(r,c.r,c.g,c.b,c.a?c.a:255); SDL_RenderFillRect(r,&rc);
+    SDL_SetRenderDrawColor(r,c.r,c.g,c.b,c.a?c.a:255); 
+    SDL_RenderFillRect(r,&rc);
 }
 static void Box(SDL_Renderer* r,int x,int y,int w,int h,SDL_Color c){
     SDL_Rect rc={x,y,w,h};
-    SDL_SetRenderDrawColor(r,c.r,c.g,c.b,255); SDL_RenderDrawRect(r,&rc);
+    SDL_SetRenderDrawColor(r,c.r,c.g,c.b,255); 
+    SDL_RenderDrawRect(r,&rc);
 }
 void DrawText(SDL_Renderer* ren,TTF_Font* font,const char* text,int x,int y,SDL_Color col){
-    SDL_Surface* s=TTF_RenderUTF8_Blended(font,text,col); if(!s) return;
+    SDL_Surface* s=TTF_RenderUTF8_Blended(font,text,col); 
+    if(!s) 
+        return;
     SDL_Texture* t=SDL_CreateTextureFromSurface(ren,s);
-    SDL_Rect dst={x,y,s->w,s->h}; SDL_RenderCopy(ren,t,NULL,&dst);
-    SDL_FreeSurface(s); SDL_DestroyTexture(t);
+    SDL_Rect dst={x,y,s->w,s->h}; 
+    SDL_RenderCopy(ren,t,NULL,&dst);
+    SDL_FreeSurface(s); 
+    SDL_DestroyTexture(t);
 }
 
 void DrawButton(SDL_Renderer* ren,TTF_Font* font,Button* b){
@@ -126,7 +142,8 @@ void DrawButton(SDL_Renderer* ren,TTF_Font* font,Button* b){
 
     /* Drop shadow */
     SDL_SetRenderDrawColor(ren,0,0,0, b->isHovered?50:90);
-    SDL_Rect sh={x+4,y+5,w,h}; SDL_RenderFillRect(ren,&sh);
+    SDL_Rect sh={x+4,y+5,w,h}; 
+    SDL_RenderFillRect(ren,&sh);
 
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
 
@@ -174,7 +191,9 @@ void DrawButton(SDL_Renderer* ren,TTF_Font* font,Button* b){
         SDL_SetTextureAlphaMod(t,255);
         SDL_Rect dst={x+(w-s->w)/2,y+(h-s->h)/2,s->w,s->h};
         SDL_RenderCopy(ren,t,NULL,&dst);
-        SDL_FreeSurface(s); SDL_DestroyTexture(t);
+        
+        SDL_FreeSurface(s); 
+        SDL_DestroyTexture(t);
     }
 }
 
