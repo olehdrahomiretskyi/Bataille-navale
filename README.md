@@ -4,7 +4,7 @@ Membres du projet:
 1. Oleh DRAHOMIRETSKYI
 2. Andrii MYKYTENKO
 
-Date limite: 10 avril 2026
+Date limite: 17 avril 2026
 
 Diagramme de Gantt Prévisionel >> https://docs.google.com/spreadsheets/d/1IqbCmA31hAxSB0njCKjtLSsNYLb4gT-OUikucNKHJD8/edit?usp=sharing
 
