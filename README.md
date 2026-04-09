@@ -10,7 +10,7 @@ Diagramme de Gantt Prévisionel >> https://docs.google.com/spreadsheets/d/1IqbCm
 
 Diagramme de Gantt Réel >> https://docs.google.com/spreadsheets/d/1W8gmvHZU9V74IEWx6prfptLu3vMO4HS02HlB6MIEWSU/edit?usp=sharing
 
-Description détaillée : 
+Description du jeu : 
 
 Point Zéro est une réinterprétation moderne et stratégique du jeu classique de la Bataille Navale. Tout en conservant les règles fondamentales qui ont fait le succès du jeu original, ce projet introduit un système économique et de nouvelles mécaniques qui transforment chaque partie.
 Le projet s'appuie sur une interface 2D épurée et réactive, développée avec la bibliothèque SDL2. Ce choix technique garantit une fluidité exemplaire des animations et une gestion optimale du conrôle, tout en offrant une expérience visuelle moderne qui modernise radicalement l'aspect statique de la bataille navale traditionnelle.
