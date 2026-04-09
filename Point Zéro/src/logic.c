@@ -14,13 +14,16 @@ bool CanPlaceShip(GameBoard* b, int r, int c, int size, bool vertical) {
     for (int i = 0; i < size; i++) {
         int cr = vertical ? r+i : r;
         int cc = vertical ? c   : c+i;
-        if (cr < 0 || cr >= GRID_SIZE || cc < 0 || cc >= GRID_SIZE) return false;
-        for (int dr = -1; dr <= 1; dr++)
+        if (cr < 0 || cr >= GRID_SIZE || cc < 0 || cc >= GRID_SIZE) 
+            return false;
+        for (int dr = -1; dr <= 1; dr++){
             for (int dc = -1; dc <= 1; dc++) {
                 int nr = cr+dr, nc = cc+dc;
                 if (nr >= 0 && nr < GRID_SIZE && nc >= 0 && nc < GRID_SIZE)
-                    if (b->cells[nr][nc] == CELL_SHIP) return false;
+                    if (b->cells[nr][nc] == CELL_SHIP) 
+                        return false;
             }
+        }
     }
     return true;
 }
@@ -60,9 +63,13 @@ static bool ShipIsSunk(GameBoard* b, int r, int c) {
     for (int d = 0; d < 4; d++) {
         int nr = r+dr[d], nc = c+dc[d];
         while (nr >= 0 && nr < GRID_SIZE && nc >= 0 && nc < GRID_SIZE) {
-            if (b->cells[nr][nc] == CELL_SHIP) return false;
-            if (b->cells[nr][nc] != CELL_HIT)  break;
-            nr += dr[d]; nc += dc[d];
+            if (b->cells[nr][nc] == CELL_SHIP) 
+                return false;
+            if (b->cells[nr][nc] != CELL_HIT)  
+                break;
+            
+            nr += dr[d]; 
+            nc += dc[d];
         }
     }
     return true;
@@ -71,17 +78,27 @@ static bool ShipIsSunk(GameBoard* b, int r, int c) {
 static int MarkSunk(GameBoard* b, int r, int c) {
     int dr[] = {0,0,1,-1};
     int dc[] = {1,-1,0,0};
-    int cells[20][2]; int cnt = 0;
+    int cells[20][2]; 
+    int cnt = 0;
 
-    cells[cnt][0] = r; cells[cnt][1] = c; cnt++;
+    cells[cnt][0] = r; 
+    cells[cnt][1] = c; 
+    cnt++;
+    
     b->cells[r][c] = CELL_SUNK;
+    
     for (int d = 0; d < 4; d++) {
         int nr = r+dr[d], nc = c+dc[d];
         while (nr >= 0 && nr < GRID_SIZE && nc >= 0 && nc < GRID_SIZE
                && b->cells[nr][nc] == CELL_HIT) {
             b->cells[nr][nc] = CELL_SUNK;
-            cells[cnt][0] = nr; cells[cnt][1] = nc; cnt++;
-            nr += dr[d]; nc += dc[d];
+            cells[cnt][0] = nr; 
+            cells[cnt][1] = nc; 
+            
+            cnt++;
+            
+            nr += dr[d]; 
+            nc += dc[d];
         }
     }
     int ar[] = {-1,-1,-1, 0, 0, 1, 1, 1};
@@ -109,7 +126,8 @@ int CheckSunkShips(GameBoard* b) {
 void InitCPUState(CPUState* cpu) {
     cpu->size        = 0;
     cpu->remainCount = 10;
-    for (int i = 0; i < 10; i++) cpu->remain[i] = SCHEMA[i];
+    for (int i = 0; i < 10; i++) 
+        cpu->remain[i] = SCHEMA[i];
 }
 
 static void RemoveRemain(CPUState* cpu, int sz) {
@@ -128,10 +146,16 @@ static bool Unshot(CellState s) {
 
 /* Push a cell onto the target stack only if it is unshot and not a duplicate */
 static void Push(CPUState* cpu, GameBoard* b, int r, int c) {
-    if (r < 0 || r >= GRID_SIZE || c < 0 || c >= GRID_SIZE) return;
-    if (!Unshot(b->cells[r][c])) return;
-    for (int i = 0; i < cpu->size; i++)
-        if (cpu->stack[i][0] == r && cpu->stack[i][1] == c) return;
+    if (r < 0 || r >= GRID_SIZE || c < 0 || c >= GRID_SIZE) 
+        return;
+    if (!Unshot(b->cells[r][c])) 
+        return;
+    
+    for (int i = 0; i < cpu->size; i++){
+        if (cpu->stack[i][0] == r && cpu->stack[i][1] == c) 
+            return;
+    }
+    
     cpu->stack[cpu->size][0] = r;
     cpu->stack[cpu->size][1] = c;
     cpu->size++;
@@ -145,7 +169,8 @@ static bool PopValid(CPUState* cpu, GameBoard* b, int* r, int* c) {
         int tr = cpu->stack[cpu->size][0];
         int tc = cpu->stack[cpu->size][1];
         if (Unshot(b->cells[tr][tc])) {
-            *r = tr; *c = tc;
+            *r = tr; 
+            *c = tc;
             return true;
         }
     }
@@ -163,17 +188,33 @@ static void PushTargets(CPUState* cpu, GameBoard* b, int r, int c) {
 
     if (upHit || downHit) {
         /* Vertical alignment confirmed — walk to ends of chain and push beyond */
-        int top = r; while (top > 0           && b->cells[top-1][c] == CELL_HIT) top--;
-        int bot = r; while (bot < GRID_SIZE-1 && b->cells[bot+1][c] == CELL_HIT) bot++;
+        int top = r; 
+        
+        while (top > 0 && b->cells[top-1][c] == CELL_HIT) 
+            top--;
+        
+        int bot = r;
+        
+        while (bot < GRID_SIZE-1 && b->cells[bot+1][c] == CELL_HIT) 
+            bot++;
+        
         Push(cpu, b, top-1, c);
         Push(cpu, b, bot+1, c);
-    } else if (leftHit || rightHit) {
+    } 
+    else if (leftHit || rightHit) {
         /* Horizontal alignment confirmed */
-        int lft = c; while (lft > 0           && b->cells[r][lft-1] == CELL_HIT) lft--;
-        int rgt = c; while (rgt < GRID_SIZE-1 && b->cells[r][rgt+1] == CELL_HIT) rgt++;
+        int lft = c; 
+        while (lft > 0 && b->cells[r][lft-1] == CELL_HIT) 
+            lft--;
+        
+        int rgt = c; 
+        while (rgt < GRID_SIZE-1 && b->cells[r][rgt+1] == CELL_HIT) 
+            rgt++;
+        
         Push(cpu, b, r, lft-1);
         Push(cpu, b, r, rgt+1);
-    } else {
+    } 
+    else {
         /* First hit on this ship — no alignment yet, push all 4 */
         Push(cpu, b, r-1, c);
         Push(cpu, b, r+1, c);
@@ -186,14 +227,16 @@ static void PushTargets(CPUState* cpu, GameBoard* b, int r, int c) {
    rebuild stack from their unshot neighbours. */
 static void RecoverFromOrphanedHits(CPUState* cpu, GameBoard* b) {
     cpu->size = 0;
-    for (int r = 0; r < GRID_SIZE; r++)
-        for (int c = 0; c < GRID_SIZE; c++)
+    for (int r = 0; r < GRID_SIZE; r++){
+        for (int c = 0; c < GRID_SIZE; c++){
             if (b->cells[r][c] == CELL_HIT) {
                 Push(cpu, b, r-1, c);
                 Push(cpu, b, r+1, c);
                 Push(cpu, b, r,   c-1);
                 Push(cpu, b, r,   c+1);
             }
+        }
+    }
 }
 
 /* Probability density map for EXPERT hunt phase.
@@ -247,8 +290,11 @@ static void BestHuntCell(GameBoard* b, CPUState* cpu, int* outR, int* outC) {
     /* Checkerboard parity when smallest remaining ship >= 2.
        Two-pass so we never get stuck: preferred parity first, fallback second. */
     int minShip = 99;
-    for (int i = 0; i < cpu->remainCount; i++)
-        if (cpu->remain[i] < minShip) minShip = cpu->remain[i];
+    for (int i = 0; i < cpu->remainCount; i++){
+        if (cpu->remain[i] < minShip) 
+            minShip = cpu->remain[i];
+    }
+    
     bool useParity = (minShip >= 2);
 
     int best0 = -1, br0 = 0, bc0 = 0;   /* even (r+c)%2==0 */
@@ -259,7 +305,8 @@ static void BestHuntCell(GameBoard* b, CPUState* cpu, int* outR, int* outC) {
             if (!Unshot(b->cells[r][c])) 
                 continue;
             int score = map[r][c];
-            if (score <= 0) continue;
+            if (score <= 0) 
+                continue;
             if (!useParity || (r+c) % 2 == 0) {
                 if (score > best0) { 
                     best0 = score; 
@@ -288,19 +335,32 @@ static void BestHuntCell(GameBoard* b, CPUState* cpu, int* outR, int* outC) {
     }
     else {
         /* Absolute fallback: first unshot cell (should never happen mid-game) */
-        for (int r = 0; r < GRID_SIZE; r++)
-            for (int c = 0; c < GRID_SIZE; c++)
-                if (Unshot(b->cells[r][c])) { *outR = r; *outC = c; return; }
+        for (int r = 0; r < GRID_SIZE; r++){
+            for (int c = 0; c < GRID_SIZE; c++){
+                if (Unshot(b->cells[r][c])) { 
+                    *outR = r; 
+                    *outC = c; 
+                    return; 
+                }
+            }
+        }
     }
 }
 
 /* Pick a random unshot cell for FACILE/NORMAL hunt */
 static void RandomUnshot(GameBoard* b, int* outR, int* outC) {
-    int pool[GRID_SIZE*GRID_SIZE][2]; int pn = 0;
-    for (int r = 0; r < GRID_SIZE; r++)
-        for (int c = 0; c < GRID_SIZE; c++)
-            if (Unshot(b->cells[r][c]))
-                { pool[pn][0] = r; pool[pn][1] = c; pn++; }
+    int pool[GRID_SIZE*GRID_SIZE][2]; 
+    int pn = 0;
+    for (int r = 0; r < GRID_SIZE; r++){
+        for (int c = 0; c < GRID_SIZE; c++){
+            if (Unshot(b->cells[r][c])){ 
+                pool[pn][0] = r; 
+                pool[pn][1] = c; 
+                pn++; 
+            }
+        }
+    }
+
     if (pn > 0) {
         int idx = rand() % pn;
         *outR = pool[idx][0];
@@ -316,15 +376,20 @@ void ProcessCPUTurn(GameBoard* player, bool* playerTurn,
         /* ── FACILE: pure random ── */
         RandomUnshot(player, &r, &c);
 
-    } else {
+    } 
+    else {
         bool found = PopValid(cpu, player, &r, &c);
 
         if (!found) {
             /* Check if any HIT cells remain (damaged but un-sunk ship) */
             bool hitExists = false;
-            for (int pr = 0; pr < GRID_SIZE && !hitExists; pr++)
-                for (int pc = 0; pc < GRID_SIZE && !hitExists; pc++)
-                    if (player->cells[pr][pc] == CELL_HIT) hitExists = true;
+            
+            for (int pr = 0; pr < GRID_SIZE && !hitExists; pr++){
+                for (int pc = 0; pc < GRID_SIZE && !hitExists; pc++){
+                    if (player->cells[pr][pc] == CELL_HIT) 
+                        hitExists = true;
+                }
+            }
 
             if (hitExists) {
                 RecoverFromOrphanedHits(cpu, player);
@@ -352,12 +417,14 @@ void ProcessCPUTurn(GameBoard* player, bool* playerTurn,
         if (sunkSz > 0) {
             RemoveRemain(cpu, sunkSz);
             cpu->size = 0;          /* ship sunk — clear stale targets */
-        } else if (diff != DIFF_FACILE) {
+        } 
+        else if (diff != DIFF_FACILE) {
             PushTargets(cpu, player, r, c);
         }
         /* Hit: CPU keeps its turn — playerTurn stays false */
 
-    } else {
+    } 
+    else {
         /* CELL_EMPTY → miss */
         player->cells[r][c] = CELL_MISS;
         *playerTurn = true;         /* pass turn back to player */
@@ -382,6 +449,7 @@ void LoadStats(GameStats* s) {
         SaveStats(s); 
         return; 
     }
+    
     int u[NUM_SKINS] = {0};
     fscanf(f, "wins=%d\nlosses=%d\nbest=%d\ncoins=%d\n"
               "unlocked=%d %d %d %d %d %d %d %d\n",
