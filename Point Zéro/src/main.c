@@ -339,8 +339,7 @@ int main(int argc,char* argv[]){
                 playerWon=false; 
                 stats.losses++;
               
-                lastCoinsEarned=CalcCoins(false,sunkThisGame,diff);
-                stats.coins+=lastCoinsEarned;
+                lastCoinsEarned=0;
               
                 SaveStats(&stats); 
                 mode=MODE_GAMEOVER;
