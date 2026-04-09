@@ -584,8 +584,8 @@ void DrawGameUI(SDL_Renderer* ren,TTF_Font* font,GameBoard* p,GameBoard* e,
     DrawCoins(ren,font,coins,WINDOW_W-165,WINDOW_H-50);
     int by2=OFFSET_Y+GRID_SIZE*CELL_SIZE+10;
     char pb2[24],eb[24];
-    snprintf(pb2,sizeof(pb2),"Vie: %d",p->shipsLeft);
-    snprintf(eb, sizeof(eb),"Vie: %d",e->shipsLeft);
+    snprintf(pb2,sizeof(pb2),"Points de vie: %d",p->shipsLeft);
+    snprintf(eb, sizeof(eb),"Points de vie: %d",e->shipsLeft);
     DrawText(ren,font,pb2,P_OFFSET_X+60,by2,(SDL_Color){60,210,80,255});
     DrawText(ren,font,eb, E_OFFSET_X+60,by2,(SDL_Color){220,60,60,255});
     int mhp=20,pw2=p->shipsLeft*220/mhp,ew2=e->shipsLeft*220/mhp,by3=by2+28;
@@ -608,7 +608,7 @@ void DrawGameOver(SDL_Renderer* ren,TTF_Font* font,bool win,int moves,
     SDL_Color tc=win?(SDL_Color){60,215,90,255}:(SDL_Color){220,60,60,255};
     DrawText(ren,font,win?"  VICTOIRE !":"  DEFAITE...",WINDOW_W/2-100,py+18,tc);
     char buf[64];
-    if(win){snprintf(buf,sizeof(buf),"Coule en %d coups !",moves);
+    if(win){snprintf(buf,sizeof(buf),"Coulé en %d coups !",moves);
             DrawText(ren,font,buf,px+90,py+72,SK()->text);}
     else DrawText(ren,font,"Votre flotte a ete coulée...",px+50,py+72,SK()->text);
     if(coinsEarned>0){
@@ -633,15 +633,15 @@ void DrawRecords(SDL_Renderer* ren,TTF_Font* font,GameStats* s,Button* btnBack){
     char buf[64];
     snprintf(buf,sizeof(buf),"Victoires :  %d",s->wins);
     DrawText(ren,font,buf,px+70,py+80,(SDL_Color){60,210,80,255});
-    snprintf(buf,sizeof(buf),"Defaites  :  %d",s->losses);
+    snprintf(buf,sizeof(buf),"Défaites  :  %d",s->losses);
     DrawText(ren,font,buf,px+70,py+130,(SDL_Color){220,60,60,255});
     int tot=s->wins+s->losses;
-    if(tot>0){snprintf(buf,sizeof(buf),"Ratio     :  %d%%",s->wins*100/tot);
+    if(tot>0){snprintf(buf,sizeof(buf),"Taux     :  %d%%",s->wins*100/tot);
               DrawText(ren,font,buf,px+70,py+180,SK()->text);}
     if(s->bestMoves<9999){snprintf(buf,sizeof(buf),"Meilleur  :  %d coups",s->bestMoves);
                           DrawText(ren,font,buf,px+70,py+230,SK()->accent);}
     else DrawText(ren,font,"Meilleur  :  ---",px+70,py+210,SK()->dim);
-    snprintf(buf,sizeof(buf),"Pieces    :  %d",s->coins);
+    snprintf(buf,sizeof(buf),"Pièces    :  %d",s->coins);
     DrawText(ren,font,buf,px+70,py+280,(SDL_Color){220,180,40,255});
     DrawButton(ren,font,btnBack);
 }
