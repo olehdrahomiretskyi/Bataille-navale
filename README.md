@@ -17,7 +17,10 @@ Le projet s'appuie sur une interface 2D épurée et réactive, développée avec
 
 Description de la fonctionnalité : 
 
-Après avoir lancé le jeu, vous êtes dans le menu avec plusieur
+Après avoir lancé le jeu, vous êtes dans le menu principal avec plusieurs boutons. Il est possible de choisir le niveau de difficulté et au début il y a le choix de deux styles de menu.
+Pour commencer le jeu vous cliquez sur le bouton JOUER et là il est possible de configurer votre flotte en balayant les navires avec le souris ou en choisissant la configuration aléatoire.
+Après chaque partie gagnée vous obtenez la monnaie que vous pouvez dépenser pour débloquer les nouveaux styles.
+Il est également possible de consulter votre score qui comprend les nombres de victoires et défaites, la taux des parties gagnées et le meilleur coup.
 
 
 Guide d'installation :
