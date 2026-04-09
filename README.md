@@ -27,12 +27,13 @@ Vous pouvez les télécharger en cliquant sur ce lien : https://github.com/libsd
 
 Après il faut suivre le tutoriel d'installation : https://umtice.univ-lemans.fr/pluginfile.php/174420/mod_resource/content/3/Tutoriel_SDL2.pdf
 
+
 COMPILATION ET LANCEMENT >>
 
-1. Extraire l'archive dans un dossier
-2. Ouvrir un terminal dans ce dossier
-3. Compiler avec make
-4. Lancer avec bin/battleship
+1. Executer la commande git clone https://github.com/olehdrahomiretskyi/Bataille-navale ou télécharger l'archive depuis ce dépôt git et l'extraire dans un dossier
+2. Compiler avec make
+3. Executer bin/battleship
+   
 
 Le fichier records.dat sera créé automatiquement
   au premier lancement (sauvegarde des scores).
