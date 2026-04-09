@@ -24,7 +24,8 @@ Guide d'installation :
 
 D'abord, les bibliothèques SDL2 doivent être installées.
 Vous pouvez les télécharger en cliquant sur ce lien : https://github.com/libsdl-org/SDL/releases/tag/release-2.30.8
-Après il faut suivre le tutoriel d'installation : umtice.univ-lemans.fr/pluginfile.php/174420/mod_resource/content/3/Tutoriel_SDL2.pdf
+
+Après il faut suivre le tutoriel d'installation : https://umtice.univ-lemans.fr/pluginfile.php/174420/mod_resource/content/3/Tutoriel_SDL2.pdf
 
 COMPILATION ET LANCEMENT >>
 
