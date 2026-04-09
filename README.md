@@ -22,14 +22,16 @@ Après avoir lancé le jeu, vous êtes dans le menu avec plusieur
 
 Guide d'installation :
 
-D'aboird, les bibliothèques SDL2 doivent etre installees
+D'abord, les bibliothèques SDL2 doivent être installées.
+Vous pouvez les télécharger en cliquant sur ce lien : https://github.com/libsdl-org/SDL/releases/tag/release-2.30.8
+Après il faut suivre le tutoriel d'installation : umtice.univ-lemans.fr/pluginfile.php/174420/mod_resource/content/3/Tutoriel_SDL2.pdf
 
 COMPILATION ET LANCEMENT >>
 
 1. Extraire l'archive dans un dossier
 2. Ouvrir un terminal dans ce dossier
 3. Compiler avec make
-4. Lancer avec /battleship
+4. Lancer avec bin/battleship
 
 Le fichier records.dat sera créé automatiquement
   au premier lancement (sauvegarde des scores).
