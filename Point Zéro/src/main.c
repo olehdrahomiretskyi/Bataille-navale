@@ -5,8 +5,10 @@
 
 static void MkBtn(Button* b,int x,int y,int w,int h,
                   Uint8 r,Uint8 g,Uint8 bl,const char* lbl){
-    b->rect=(SDL_Rect){x,y,w,h}; b->color=(SDL_Color){r,g,bl,255};
-    b->isHovered=false; strncpy(b->label,lbl,sizeof(b->label)-1);
+    b->rect=(SDL_Rect){x,y,w,h}; 
+    b->color=(SDL_Color){r,g,bl,255};
+    b->isHovered=false; 
+    strncpy(b->label,lbl,sizeof(b->label)-1);
     b->label[sizeof(b->label)-1]='\0';
 }
 static void Hover(Button* b,int mx,int my){
@@ -17,14 +19,21 @@ static void Hover(Button* b,int mx,int my){
 static int CalcCoins(bool win,int sunkCount,AIDifficulty diff){
     int base=0;
     if(win){
-        if(diff==DIFF_FACILE)  base=50;
-        else if(diff==DIFF_NORMAL) base=100;
-        else                       base=200;
-    } else {
+        if(diff==DIFF_FACILE)  
+          base=50;
+        else if(diff==DIFF_NORMAL) 
+          base=100;
+        else                       
+          base=200;
+    } 
+    else {
         /* Loss: tiny coins, still scale a bit */
-        if(diff==DIFF_FACILE)  base=5;
-        else if(diff==DIFF_NORMAL) base=10;
-        else                       base=20;
+        if(diff==DIFF_FACILE)  
+          base=5;
+        else if(diff==DIFF_NORMAL) 
+          base=10;
+        else                       
+          base=20;
     }
     /* Bonus per ship sunk */
     int perSunk=(diff==DIFF_FACILE)?5:(diff==DIFF_NORMAL)?10:20;
@@ -32,7 +41,10 @@ static int CalcCoins(bool win,int sunkCount,AIDifficulty diff){
 }
 
 int main(int argc,char* argv[]){
-    (void)argc;(void)argv;
+  
+    (void)argc;
+    (void)argv;
+  
     SDL_Init(SDL_INIT_VIDEO); TTF_Init();
     srand((unsigned)time(NULL));
     SDL_Window*   win=SDL_CreateWindow("Point Zéro",
@@ -42,7 +54,8 @@ int main(int argc,char* argv[]){
     SDL_RenderSetLogicalSize(ren, WINDOW_W, WINDOW_H);  /* scale to any screen size */
     TTF_Font*     font=TTF_OpenFont("lib/font.ttf",24);
 
-    GameBoard player,enemy; CPUState cpu;
+    GameBoard player,enemy; 
+    CPUState cpu;
     GameMode  mode=MODE_SPLASH;
     bool  quit=false,playerTurn=true,playerWon=false,isV=false;
     int   ships[]={4,3,3,2,2,2,1,1,1,1};
@@ -50,7 +63,10 @@ int main(int argc,char* argv[]){
     Uint32 gameStart=0;
     AIDifficulty diff=DIFF_NORMAL;
     GridSkin sk=SKIN_OCEAN;
-    GameStats stats; LoadStats(&stats);
+  
+    GameStats stats; 
+    LoadStats(&stats);
+  
     /* Restore active skin */
     for(int i=0;i<NUM_SKINS;i++) 
       if(stats.unlocked[i]) 
@@ -87,7 +103,8 @@ int main(int argc,char* argv[]){
         int cy=ssmy+row*(sch+ssmg);
         MkBtn(&btnBuy[i],cx+8,cy+158,120,32, 180,140,10,"ACHETER");
         MkBtn(&btnSel[i],cx+8,cy+158,120,32,  30,100,45,"CHOISIR");
-        pBuy[i]=&btnBuy[i]; pSel[i]=&btnSel[i];
+        pBuy[i]=&btnBuy[i]; 
+        pSel[i]=&btnSel[i];
     }
     Button bShopBack;
     MkBtn(&bShopBack,WINDOW_W/2-110,680,220,50, 60,50,110,"< RETOUR");
@@ -124,7 +141,10 @@ int main(int argc,char* argv[]){
             mx=(int)lx; 
             my=(int)ly;
         }
-        if(mode==MODE_PLACEMENT){hR=(my-OFFSET_Y)/CELL_SIZE;hC=(mx-P_OFFSET_X)/CELL_SIZE;}
+        if(mode==MODE_PLACEMENT){
+          hR=(my-OFFSET_Y)/CELL_SIZE;
+          hC=(mx-P_OFFSET_X)/CELL_SIZE;
+        }
 
         while(SDL_PollEvent(&ev)){
             if(ev.type==SDL_QUIT){
@@ -211,7 +231,7 @@ int main(int argc,char* argv[]){
                                 SaveStats(&stats);
                             }
                         }
-                        if(stats.unlocked[i]&&btnSel[i].isHovered&&(GridSkin)i!=sk){
+                        if(stats.unlocked[i] && btnSel[i].isHovered && (GridSkin)i != sk){
                             sk=(GridSkin)i; 
                             SetSkin(sk);
                             snprintf(bSkin.label,sizeof(bSkin.label),"Theme actif: %s",snames[sk]);
@@ -220,7 +240,7 @@ int main(int argc,char* argv[]){
                     if(bShopBack.isHovered) 
                       mode=MODE_MAINMENU;
                 }
-                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE) 
+                if(ev.type==SDL_KEYDOWN && ev.key.keysym.sym==SDLK_ESCAPE) 
                   mode=MODE_MAINMENU;
 
             } 
@@ -262,14 +282,14 @@ int main(int argc,char* argv[]){
                         }
                     }
                 }
-                if(bPlaceBack.isHovered&&ev.type==SDL_MOUSEBUTTONDOWN) 
+                if(bPlaceBack.isHovered && ev.type==SDL_MOUSEBUTTONDOWN) 
                   mode=MODE_MAINMENU;
-                if(ev.type==SDL_KEYDOWN&&ev.key.keysym.sym==SDLK_ESCAPE)
+                if(ev.type==SDL_KEYDOWN && ev.key.keysym.sym==SDLK_ESCAPE)
                   mode=MODE_MAINMENU;
 
             } else if(mode==MODE_GAME){
                 Hover(&bExit,mx,my);
-                if(playerTurn&&ev.type==SDL_MOUSEBUTTONDOWN){
+                if(playerTurn && ev.type==SDL_MOUSEBUTTONDOWN){
                     if(bExit.isHovered){ 
                       mode=MODE_MAINMENU;
                       break; 
