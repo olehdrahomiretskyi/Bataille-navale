@@ -256,19 +256,36 @@ static void BestHuntCell(GameBoard* b, CPUState* cpu, int* outR, int* outC) {
 
     for (int r = 0; r < GRID_SIZE; r++) {
         for (int c = 0; c < GRID_SIZE; c++) {
-            if (!Unshot(b->cells[r][c])) continue;
+            if (!Unshot(b->cells[r][c])) 
+                continue;
             int score = map[r][c];
             if (score <= 0) continue;
             if (!useParity || (r+c) % 2 == 0) {
-                if (score > best0) { best0 = score; br0 = r; bc0 = c; }
-            } else {
-                if (score > best1) { best1 = score; br1 = r; bc1 = c; }
+                if (score > best0) { 
+                    best0 = score; 
+                    br0 = r; 
+                    bc0 = c; 
+                }
+            } 
+            else {
+                if (score > best1) { 
+                    best1 = score; 
+                    br1 = r; 
+                    bc1 = c; 
+                }
             }
         }
     }
 
-    if      (best0 >= 0) { *outR = br0; *outC = bc0; }
-    else if (best1 >= 0) { *outR = br1; *outC = bc1; }
+    if (best0 >= 0) { 
+        *outR = br0; 
+        *outC = bc0; 
+    }
+        
+    else if (best1 >= 0) { 
+        *outR = br1; 
+        *outC = bc1; 
+    }
     else {
         /* Absolute fallback: first unshot cell (should never happen mid-game) */
         for (int r = 0; r < GRID_SIZE; r++)
@@ -349,23 +366,40 @@ void ProcessCPUTurn(GameBoard* player, bool* playerTurn,
 
 
 void LoadStats(GameStats* s) {
-    s->wins = 0; s->losses = 0; s->bestMoves = 9999; s->coins = 0;
-    s->unlocked[0] = true; s->unlocked[1] = true;
-    for (int i = 2; i < NUM_SKINS; i++) s->unlocked[i] = false;
+    s->wins = 0; 
+    s->losses = 0; 
+    s->bestMoves = 9999; 
+    s->coins = 0;
+    s->unlocked[0] = true; 
+    s->unlocked[1] = true;
+    
+    for (int i = 2; i < NUM_SKINS; i++) 
+        s->unlocked[i] = false;
+    
     FILE* f = fopen("records.dat", "r");
-    if (!f) { SaveStats(s); return; }
+    
+    if (!f) { 
+        SaveStats(s); 
+        return; 
+    }
     int u[NUM_SKINS] = {0};
     fscanf(f, "wins=%d\nlosses=%d\nbest=%d\ncoins=%d\n"
               "unlocked=%d %d %d %d %d %d %d %d\n",
            &s->wins, &s->losses, &s->bestMoves, &s->coins,
            &u[0],&u[1],&u[2],&u[3],&u[4],&u[5],&u[6],&u[7]);
-    for (int i = 0; i < NUM_SKINS; i++) s->unlocked[i] = (u[i] != 0);
-    s->unlocked[0] = true; s->unlocked[1] = true;
+    
+    for (int i = 0; i < NUM_SKINS; i++) 
+        s->unlocked[i] = (u[i] != 0);
+    
+    s->unlocked[0] = true;
+    s->unlocked[1] = true;
     fclose(f);
 }
 
 void SaveStats(GameStats* s) {
-    FILE* f = fopen("records.dat", "w"); if (!f) return;
+    FILE* f = fopen("records.dat", "w"); 
+    if (!f) 
+        return;
     fprintf(f, "wins=%d\nlosses=%d\nbest=%d\ncoins=%d\n"
                "unlocked=%d %d %d %d %d %d %d %d\n",
             s->wins, s->losses, s->bestMoves, s->coins,
