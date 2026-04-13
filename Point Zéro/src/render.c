@@ -231,7 +231,7 @@ void DrawSplash(SDL_Renderer* ren,TTF_Font* font,Uint32 ticks){
     if((ticks/600)%2==0)
         DrawText(ren,font,"[ APPUYEZ SUR UNE TOUCHE ]",
                  WINDOW_W/2-168,WINDOW_H/2+60,(SDL_Color){200,220,255,255});
-    DrawText(ren,font,"SDL2  |  C11",WINDOW_W/2-58,WINDOW_H-32,(SDL_Color){50,65,95,255});
+    DrawText(ren,font,"SDL2",WINDOW_W/2-58,WINDOW_H-32,(SDL_Color){50,65,95,255});
 }
 
 void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
