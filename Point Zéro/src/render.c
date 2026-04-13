@@ -199,7 +199,9 @@ void DrawButton(SDL_Renderer* ren,TTF_Font* font,Button* b){
 
 
 static void DrawCoins(SDL_Renderer* ren,TTF_Font* font,int coins,int x,int y){
-    char buf[32]; snprintf(buf,sizeof(buf),"$ %d",coins);
+    char buf[32]; 
+    snprintf(buf,sizeof(buf),"$ %d",coins);
+    
     Fill(ren,x,y,150,36,(SDL_Color){40,30,5,255});
     Box(ren, x,y,150,36,(SDL_Color){220,180,40,255});
     DrawText(ren,font,buf,x+12,y+7,(SDL_Color){220,180,40,255});
@@ -207,7 +209,9 @@ static void DrawCoins(SDL_Renderer* ren,TTF_Font* font,int coins,int x,int y){
 
 
 void DrawSplash(SDL_Renderer* ren,TTF_Font* font,Uint32 ticks){
-    SDL_SetRenderDrawColor(ren,8,12,24,255); SDL_RenderClear(ren);
+    SDL_SetRenderDrawColor(ren,8,12,24,255); 
+    SDL_RenderClear(ren);
+    
     UpdateParticles(ren);
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     for(int w=0;w<3;w++){
@@ -215,14 +219,17 @@ void DrawSplash(SDL_Renderer* ren,TTF_Font* font,Uint32 ticks){
         for(int x=0;x<WINDOW_W;x++){
             int y2=WINDOW_H-80-w*25+(int)(12.f*sinf((float)x/60.f+off));
             SDL_SetRenderDrawColor(ren,(Uint8)(40+w*10),(Uint8)(80+w*20),(Uint8)(160+w*20),(Uint8)(55-w*15));
-            SDL_Rect wv={x,y2,1,WINDOW_H}; SDL_RenderFillRect(ren,&wv);
+            SDL_Rect wv={x,y2,1,WINDOW_H}; 
+            SDL_RenderFillRect(ren,&wv);
         }
     }
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     int tx=WINDOW_W/2-310,ty=WINDOW_H/2-145;
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,10,20,50,200);
-    SDL_Rect tb={tx,ty,620,155}; SDL_RenderFillRect(ren,&tb);
+    SDL_Rect tb={tx,ty,620,155}; 
+    SDL_RenderFillRect(ren,&tb);
+    
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     Box(ren,tx,ty,620,155,(SDL_Color){80,150,255,255});
     Box(ren,tx+2,ty+2,616,151,(SDL_Color){30,60,120,255});
@@ -238,12 +245,16 @@ void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
                   Button* play,Button* shop,Button* settings,Button* records,Button* quit,
                   int coins){
     SDL_Color bg=SK()->bg;
-    SDL_SetRenderDrawColor(ren,bg.r,bg.g,bg.b,255); SDL_RenderClear(ren);
+    SDL_SetRenderDrawColor(ren,bg.r,bg.g,bg.b,255); 
+    SDL_RenderClear(ren);
+    
     UpdateParticles(ren);
     SDL_Color acc=SK()->accent;
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,acc.r,acc.g,acc.b,18);
-    SDL_Rect tp={WINDOW_W/2-240,38,480,80}; SDL_RenderFillRect(ren,&tp);
+    SDL_Rect tp={WINDOW_W/2-240,38,480,80}; 
+    SDL_RenderFillRect(ren,&tp);
+    
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     Box(ren,tp.x,tp.y,tp.w,tp.h,acc);
     DrawText(ren,font,"POINT ZERO",WINDOW_W/2-150,52,SK()->text);
@@ -253,27 +264,41 @@ void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
     int lx=60,ly=130;
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,acc.r,acc.g,acc.b,18);
-    SDL_Rect lp={lx,ly,520,560}; SDL_RenderFillRect(ren,&lp);
+    SDL_Rect lp={lx,ly,520,560}; 
+    SDL_RenderFillRect(ren,&lp);
+    
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     Box(ren,lx,ly,520,560,acc);
     DrawText(ren,font,"POINT ZERO",lx+42,ly+20,SK()->text);
     SDL_SetRenderDrawColor(ren,acc.r,acc.g,acc.b,255);
     SDL_RenderDrawLine(ren,lx+10,ly+56,lx+380,ly+56);
+    
     static const char PAT[8][8]={{0,0,1,1,1,0,0,0},{0,0,0,0,0,0,1,0},
         {0,1,0,0,0,0,1,0},{0,1,0,2,0,0,1,0},{0,1,0,0,0,0,0,0},
         {0,0,0,0,1,1,0,0},{0,0,3,0,0,0,0,0},{0,0,0,0,0,0,0,1}};
+    
     int gx=lx+30,gy=ly+80,cs=36;
-    for(int r=0;r<8;r++) for(int c=0;c<8;c++){
-        int x=gx+c*cs,y=gy+r*cs;
-        Fill(ren,x+1,y+1,cs-2,cs-2,SK()->water);
-        if(PAT[r][c]==1) Fill(ren,x+2,y+2,cs-4,cs-4,SK()->ship);
-        else if(PAT[r][c]==2){Fill(ren,x+1,y+1,cs-2,cs-2,SK()->hit);
-            SDL_SetRenderDrawColor(ren,255,255,255,255);
-            SDL_RenderDrawLine(ren,x+5,y+5,x+cs-6,y+cs-6);
-            SDL_RenderDrawLine(ren,x+cs-6,y+5,x+5,y+cs-6);}
-        else if(PAT[r][c]==3){Fill(ren,x+1,y+1,cs-2,cs-2,SK()->miss);
-            Fill(ren,x+cs/2-2,y+cs/2-2,4,4,SK()->dim);}
-        Box(ren,x,y,cs,cs,SK()->grid);
+    for(int r=0;r<8;r++){ 
+        for(int c=0;c<8;c++){
+            int x=gx+c*cs,y=gy+r*cs;
+            Fill(ren,x+1,y+1,cs-2,cs-2,SK()->water);
+            
+            if(PAT[r][c]==1) 
+                Fill(ren,x+2,y+2,cs-4,cs-4,SK()->ship);
+                
+            else if(PAT[r][c]==2){
+                Fill(ren,x+1,y+1,cs-2,cs-2,SK()->hit);
+                SDL_SetRenderDrawColor(ren,255,255,255,255);
+                SDL_RenderDrawLine(ren,x+5,y+5,x+cs-6,y+cs-6);
+                SDL_RenderDrawLine(ren,x+cs-6,y+5,x+5,y+cs-6);
+            }
+                
+            else if(PAT[r][c]==3){
+                Fill(ren,x+1,y+1,cs-2,cs-2,SK()->miss);
+                Fill(ren,x+cs/2-2,y+cs/2-2,4,4,SK()->dim);
+            }
+            Box(ren,x,y,cs,cs,SK()->grid);
+        }
     }
     Box(ren,gx,gy,8*cs,8*cs,acc);
     DrawText(ren,font,"Apercu de partie...",lx+68,gy+8*cs+10,SK()->dim);
@@ -282,13 +307,16 @@ void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
     int rx=638,ry=120;
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,acc.r,acc.g,acc.b,14);
-    SDL_Rect rp={rx-10,ry,500,580}; SDL_RenderFillRect(ren,&rp);
+    SDL_Rect rp={rx-10,ry,500,580}; 
+    SDL_RenderFillRect(ren,&rp);
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     Box(ren,rx-10,ry,500,580,SK()->dim);
 
     /* Buttons — draw them first, then icon decorations on top-left corner */
     Button* btns[5]={play,shop,settings,records,quit};
-    for(int i=0;i<5;i++) DrawButton(ren,font,btns[i]);
+    
+    for(int i=0;i<5;i++) 
+        DrawButton(ren,font,btns[i]);
 
     /* Icon accent squares on left edge of each button */
     SDL_Color icols[5]={{30,110,50,255},{100,65,10,255},{50,65,160,255},{110,85,20,255},{130,30,30,255}};
@@ -298,7 +326,8 @@ void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
         /* Lighter inner edge */
         SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
         SDL_SetRenderDrawColor(ren,255,255,255,35);
-        SDL_Rect hl={bx2,by2,46,bh2}; SDL_RenderFillRect(ren,&hl);
+        SDL_Rect hl={bx2,by2,46,bh2}; 
+        SDL_RenderFillRect(ren,&hl);
         SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     }
     /* Play icon - triangle */
@@ -347,18 +376,24 @@ void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
 void DrawSettings(SDL_Renderer* ren,TTF_Font* font,Button* diff,Button* skin,Button* back){
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,0,0,10,210);
-    SDL_Rect ov={0,0,WINDOW_W,WINDOW_H}; SDL_RenderFillRect(ren,&ov);
+    SDL_Rect ov={0,0,WINDOW_W,WINDOW_H}; 
+    SDL_RenderFillRect(ren,&ov);
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
+    
     int px=WINDOW_W/2-260,py=80;
-    Fill(ren,px,py,520,540,SK()->bg); Box(ren,px,py,520,540,SK()->accent);
+    Fill(ren,px,py,520,540,SK()->bg); 
+    Box(ren,px,py,520,540,SK()->accent);
     Box(ren,px+2,py+2,516,536,SK()->dim);
     DrawText(ren,font,"REGLAGES",px+185,py+15,SK()->text);
     SDL_Color ac=SK()->accent;
     SDL_SetRenderDrawColor(ren,ac.r,ac.g,ac.b,255);
     SDL_RenderDrawLine(ren,px+10,py+54,px+510,py+54);
+    
     DrawText(ren,font,"Difficulte IA :",px+30,diff->rect.y-26,SK()->dim);
     DrawText(ren,font,"Theme actif  :",px+30,skin->rect.y-26,SK()->dim);
-    DrawButton(ren,font,diff); DrawButton(ren,font,skin); DrawButton(ren,font,back);
+    DrawButton(ren,font,diff); 
+    DrawButton(ren,font,skin); 
+    DrawButton(ren,font,back);
 }
 
 void DrawShop(SDL_Renderer* ren,TTF_Font* font,
@@ -366,11 +401,15 @@ void DrawShop(SDL_Renderer* ren,TTF_Font* font,
               Button* btnBuy[NUM_SKINS],Button* btnSelect[NUM_SKINS],Button* back){
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,0,0,10,210);
-    SDL_Rect ov={0,0,WINDOW_W,WINDOW_H}; SDL_RenderFillRect(ren,&ov);
+    SDL_Rect ov={0,0,WINDOW_W,WINDOW_H}; 
+    SDL_RenderFillRect(ren,&ov);
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
+    
     int px=100,py=70,pw=1080,ph=640;
-    Fill(ren,px,py,pw,ph,SK()->bg); Box(ren,px,py,pw,ph,SK()->accent);
+    Fill(ren,px,py,pw,ph,SK()->bg); 
+    Box(ren,px,py,pw,ph,SK()->accent);
     DrawText(ren,font,"BOUTIQUE DES THEMES",px+380,py+12,SK()->text);
+    
     SDL_Color ac=SK()->accent;
     SDL_SetRenderDrawColor(ren,ac.r,ac.g,ac.b,255);
     SDL_RenderDrawLine(ren,px+10,py+50,px+pw-10,py+50);
@@ -387,21 +426,30 @@ void DrawShop(SDL_Renderer* ren,TTF_Font* font,
         SDL_Color border=active?(SDL_Color){220,180,40,255}:owned?(SDL_Color){80,150,255,255}:SK()->dim;
         Fill(ren,cx,cy,cw,ch,SKINS[i].bg);
         Box(ren, cx,cy,cw,ch,border);
-        if(active){ Box(ren,cx+2,cy+2,cw-4,ch-4,border); }
+        if(active){ 
+            Box(ren,cx+2,cy+2,cw-4,ch-4,border); 
+        }
         /* Mini preview of water+ship colours */
-        for(int r2=0;r2<3;r2++) for(int c2=0;c2<5;c2++){
-            int xx=cx+12+c2*38,yy=cy+12+r2*28;
-            SDL_Color wc=(r2==1&&c2>=1&&c2<=3)?SKINS[i].ship:SKINS[i].water;
-            Fill(ren,xx,yy,35,25,wc); Box(ren,xx,yy,35,25,SKINS[i].grid);
+        for(int r2=0;r2<3;r2++){ 
+            for(int c2=0;c2<5;c2++){
+                int xx=cx+12+c2*38,yy=cy+12+r2*28;
+                SDL_Color wc=(r2==1&&c2>=1&&c2<=3)?SKINS[i].ship:SKINS[i].water;
+                
+                Fill(ren,xx,yy,35,25,wc); 
+                Box(ren,xx,yy,35,25,SKINS[i].grid);
+            }
         }
         DrawText(ren,font,SKIN_NAMES[i],cx+12,cy+100,SKINS[i].text);
         if(!owned){
-            char pbuf[32]; snprintf(pbuf,sizeof(pbuf),"$ %d",SKIN_PRICES[i]);
+            char pbuf[32]; 
+            snprintf(pbuf,sizeof(pbuf),"$ %d",SKIN_PRICES[i]);
             DrawText(ren,font,pbuf,cx+12,cy+128,(SDL_Color){220,180,40,255});
             DrawButton(ren,font,btnBuy[i]);
-        } else if(active){
+        } 
+        else if(active){
             DrawText(ren,font,"ACTIF",cx+12,cy+128,(SDL_Color){60,220,80,255});
-        } else {
+        } 
+        else {
             DrawButton(ren,font,btnSelect[i]);
         }
     }
@@ -410,55 +458,70 @@ void DrawShop(SDL_Renderer* ren,TTF_Font* font,
 
 void DrawBoard(SDL_Renderer* ren,TTF_Font* font,GameBoard* b,
                int ox,int oy,bool hide,bool dimmed){
-    const char* COLS="ABCDEFGHIJ"; char buf[4];
+    const char* COLS="ABCDEFGHIJ"; 
+    char buf[4];
+    
     SDL_Color labelCol=dimmed?(SDL_Color){60,70,90,255}:SK()->dim;
-    for(int c=0;c<GRID_SIZE;c++){buf[0]=COLS[c];buf[1]=0;
-        DrawText(ren,font,buf,ox+c*CELL_SIZE+CELL_SIZE/2-6,oy-26,labelCol);}
-    for(int r=0;r<GRID_SIZE;r++){snprintf(buf,4,"%d",r+1);
-        DrawText(ren,font,buf,ox-26,oy+r*CELL_SIZE+CELL_SIZE/2-10,labelCol);}
-    for(int r=0;r<GRID_SIZE;r++) for(int c=0;c<GRID_SIZE;c++){
-        int x=ox+c*CELL_SIZE, y=oy+r*CELL_SIZE;
-        CellState cs=b->cells[r][c];
-        Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->water);
-        if(cs==CELL_SHIP&&!hide){
-            Fill(ren,x+2,y+2,CELL_SIZE-4,CELL_SIZE-4,SK()->ship);
-            Box(ren, x+3,y+3,CELL_SIZE-6,CELL_SIZE-6,(SDL_Color){200,215,240,255});
-        } else if(cs==CELL_HIT){
-            /* Bright flame orange — clearly different from sunk */
-            Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->hit);
-            /* Bold white X */
-            SDL_SetRenderDrawColor(ren,255,255,255,255);
-            SDL_RenderDrawLine(ren,x+6,y+6,x+CELL_SIZE-7,y+CELL_SIZE-7);
-            SDL_RenderDrawLine(ren,x+CELL_SIZE-7,y+6,x+6,y+CELL_SIZE-7);
-            SDL_RenderDrawLine(ren,x+7,y+6,x+CELL_SIZE-6,y+CELL_SIZE-7);
-            SDL_RenderDrawLine(ren,x+CELL_SIZE-6,y+6,x+7,y+CELL_SIZE-7);
-        } else if(cs==CELL_SUNK){
-            /* Dark crimson — clearly "dead" */
-            Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->sunk);
-            /* Skull-ish: two diagonal lines + horizontal */
-            SDL_SetRenderDrawColor(ren,255,80,80,255);
-            SDL_RenderDrawLine(ren,x+5,y+5,x+CELL_SIZE-6,y+CELL_SIZE-6);
-            SDL_RenderDrawLine(ren,x+CELL_SIZE-6,y+5,x+5,y+CELL_SIZE-6);
-            SDL_SetRenderDrawColor(ren,200,50,50,255);
-            SDL_RenderDrawLine(ren,x+5,y+CELL_SIZE/2,x+CELL_SIZE-6,y+CELL_SIZE/2);
-        } else if(cs==CELL_MISS){
-            Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->miss);
-            /* Small dot */
-            Fill(ren,x+CELL_SIZE/2-3,y+CELL_SIZE/2-3,6,6,SK()->dim);
-        } else if(cs==CELL_NEAR_SUNK){
-            /* Subtle dark safe zone — darker than water */
-            Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->near);
-            /* Tiny diamond to indicate "scanned safe" */
-            int mx3=x+CELL_SIZE/2, my3=y+CELL_SIZE/2;
-            SDL_SetRenderDrawColor(ren,SK()->dim.r,SK()->dim.g,SK()->dim.b,180);
-            SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
-            SDL_RenderDrawLine(ren,mx3,my3-4,mx3+4,my3);
-            SDL_RenderDrawLine(ren,mx3+4,my3,mx3,my3+4);
-            SDL_RenderDrawLine(ren,mx3,my3+4,mx3-4,my3);
-            SDL_RenderDrawLine(ren,mx3-4,my3,mx3,my3-4);
-            SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
+    
+    for(int c=0;c<GRID_SIZE;c++){
+        buf[0]=COLS[c];
+        buf[1]=0;
+        DrawText(ren,font,buf,ox+c*CELL_SIZE+CELL_SIZE/2-6,oy-26,labelCol);
+    }
+    for(int r=0;r<GRID_SIZE;r++){
+        snprintf(buf,4,"%d",r+1);
+        DrawText(ren,font,buf,ox-26,oy+r*CELL_SIZE+CELL_SIZE/2-10,labelCol);
+    
+    }
+    for(int r=0;r<GRID_SIZE;r++){ 
+        for(int c=0;c<GRID_SIZE;c++){
+            int x=ox+c*CELL_SIZE, y=oy+r*CELL_SIZE;
+            CellState cs=b->cells[r][c];
+            Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->water);
+            if(cs==CELL_SHIP&&!hide){
+                Fill(ren,x+2,y+2,CELL_SIZE-4,CELL_SIZE-4,SK()->ship);
+                Box(ren, x+3,y+3,CELL_SIZE-6,CELL_SIZE-6,(SDL_Color){200,215,240,255});
+            } 
+            else if(cs==CELL_HIT){
+                /* Bright flame orange — clearly different from sunk */
+                Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->hit);
+                /* Bold white X */
+                SDL_SetRenderDrawColor(ren,255,255,255,255);
+                SDL_RenderDrawLine(ren,x+6,y+6,x+CELL_SIZE-7,y+CELL_SIZE-7);
+                SDL_RenderDrawLine(ren,x+CELL_SIZE-7,y+6,x+6,y+CELL_SIZE-7);
+                SDL_RenderDrawLine(ren,x+7,y+6,x+CELL_SIZE-6,y+CELL_SIZE-7);
+                SDL_RenderDrawLine(ren,x+CELL_SIZE-6,y+6,x+7,y+CELL_SIZE-7);
+            } 
+            else if(cs==CELL_SUNK){
+                /* Dark crimson — clearly "dead" */
+                Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->sunk);
+                /* Skull-ish: two diagonal lines + horizontal */
+                SDL_SetRenderDrawColor(ren,255,80,80,255);
+                SDL_RenderDrawLine(ren,x+5,y+5,x+CELL_SIZE-6,y+CELL_SIZE-6);
+                SDL_RenderDrawLine(ren,x+CELL_SIZE-6,y+5,x+5,y+CELL_SIZE-6);
+                SDL_SetRenderDrawColor(ren,200,50,50,255);
+                SDL_RenderDrawLine(ren,x+5,y+CELL_SIZE/2,x+CELL_SIZE-6,y+CELL_SIZE/2);
+            } 
+            else if(cs==CELL_MISS){
+                Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->miss);
+                /* Small dot */
+                Fill(ren,x+CELL_SIZE/2-3,y+CELL_SIZE/2-3,6,6,SK()->dim);
+            } 
+            else if(cs==CELL_NEAR_SUNK){
+                /* Subtle dark safe zone — darker than water */
+                Fill(ren,x+1,y+1,CELL_SIZE-2,CELL_SIZE-2,SK()->near);
+                /* Tiny diamond to indicate "scanned safe" */
+                int mx3=x+CELL_SIZE/2, my3=y+CELL_SIZE/2;
+                SDL_SetRenderDrawColor(ren,SK()->dim.r,SK()->dim.g,SK()->dim.b,180);
+                SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
+                SDL_RenderDrawLine(ren,mx3,my3-4,mx3+4,my3);
+                SDL_RenderDrawLine(ren,mx3+4,my3,mx3,my3+4);
+                SDL_RenderDrawLine(ren,mx3,my3+4,mx3-4,my3);
+                SDL_RenderDrawLine(ren,mx3-4,my3,mx3,my3-4);
+                SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
+            }
+            Box(ren,x,y,CELL_SIZE,CELL_SIZE,SK()->grid);
         }
-        Box(ren,x,y,CELL_SIZE,CELL_SIZE,SK()->grid);
     }
     Box(ren,ox,oy,GRID_SIZE*CELL_SIZE,GRID_SIZE*CELL_SIZE,SK()->accent);
 
@@ -481,17 +544,24 @@ void DrawBoard(SDL_Renderer* ren,TTF_Font* font,GameBoard* b,
 
 void DrawPlacementPreview(SDL_Renderer* ren,GameBoard* b,int ox,int oy,
                            int hR,int hC,int size,bool isV){
-    if(hR<0||hR>=GRID_SIZE||hC<0||hC>=GRID_SIZE) return;
+    if(hR<0||hR>=GRID_SIZE||hC<0||hC>=GRID_SIZE) 
+        return;
+    
     bool valid=CanPlaceShip(b,hR,hC,size,isV);
     SDL_Color col=valid?(SDL_Color){50,220,90,170}:(SDL_Color){220,50,50,170};
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
+    
     for(int i=0;i<size;i++){
         int r=isV?hR+i:hR, c=isV?hC:hC+i;
-        if(r<0||r>=GRID_SIZE||c<0||c>=GRID_SIZE) break;
+        
+        if(r<0||r>=GRID_SIZE||c<0||c>=GRID_SIZE) 
+            break;
+        
         SDL_SetRenderDrawColor(ren,col.r,col.g,col.b,col.a);
         SDL_Rect rc={ox+c*CELL_SIZE+1,oy+r*CELL_SIZE+1,CELL_SIZE-2,CELL_SIZE-2};
         SDL_RenderFillRect(ren,&rc);
-        SDL_SetRenderDrawColor(ren,255,255,255,200); SDL_RenderDrawRect(ren,&rc);
+        SDL_SetRenderDrawColor(ren,255,255,255,200); 
+        SDL_RenderDrawRect(ren,&rc);
     }
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
 }
@@ -530,9 +600,13 @@ void DrawPlacementUI(SDL_Renderer* ren,TTF_Font* font,int placed,
     int iy=OFFSET_Y;
     for(int i=0;i<10;i++){
         SDL_Color col;
-        if(i<placed)       col=(SDL_Color){30,120,50,255};
-        else if(i==placed) col=(SDL_Color){220,190,30,255};
-        else               col=SK()->dim;
+        if(i<placed)       
+            col=(SDL_Color){30,120,50,255};
+        else if(i==placed) 
+            col=(SDL_Color){220,190,30,255};
+        else               
+            col=SK()->dim;
+        
         for(int j=0;j<schema[i];j++){
             int cx=sx+12+j*(CELL_SIZE-4);
             Fill(ren,cx,iy+2,CELL_SIZE-5,CELL_SIZE-6,col);
@@ -550,11 +624,17 @@ void DrawPlacementUI(SDL_Renderer* ren,TTF_Font* font,int placed,
     DrawButton(ren,font,bBack);
     DrawButton(ren,font,bRand);
     DrawButton(ren,font,bReset);
-    if(placed>=10) DrawButton(ren,font,bPret);
+    
+    if(placed>=10) 
+        DrawButton(ren,font,bPret);
     else {
         /* Show greyed-out PRET hint */
         SDL_Color gc={(Uint8)(bPret->color.r/2),(Uint8)(bPret->color.g/2),(Uint8)(bPret->color.b/2),255};
-        Button ghost=*bPret; ghost.color=gc; ghost.isHovered=false;
+        
+        Button ghost=*bPret; 
+        ghost.color=gc; 
+        ghost.isHovered=false;
+        
         DrawButton(ren,font,&ghost);
         /* Overlay text */
         char buf[32]; 
@@ -573,7 +653,8 @@ void DrawGameUI(SDL_Renderer* ren,TTF_Font* font,GameBoard* p,GameBoard* e,
     int bw=310,bx=WINDOW_W/2-bw/2,by=30;
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,mc.r,mc.g,mc.b,22);
-    SDL_Rect bp={bx,by,bw,32}; SDL_RenderFillRect(ren,&bp);
+    SDL_Rect bp={bx,by,bw,32}; 
+    SDL_RenderFillRect(ren,&bp);
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
     Box(ren,bx,by,bw,32,mc);
     DrawText(ren,font,msg,bx+26,by+6,mc);
@@ -601,46 +682,68 @@ void DrawGameOver(SDL_Renderer* ren,TTF_Font* font,bool win,int moves,
                   int coinsEarned,Button* btnR,Button* btnM){
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,0,0,0,185);
-    SDL_Rect ov={0,0,WINDOW_W,WINDOW_H}; SDL_RenderFillRect(ren,&ov);
+    SDL_Rect ov={0,0,WINDOW_W,WINDOW_H}; 
+    SDL_RenderFillRect(ren,&ov);
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
+    
     int px=WINDOW_W/2-270,py=WINDOW_H/2-165;
-    Fill(ren,px,py,540,350,SK()->bg); Box(ren,px,py,540,350,SK()->accent);
+    Fill(ren,px,py,540,350,SK()->bg);
+    Box(ren,px,py,540,350,SK()->accent);
     SDL_Color tc=win?(SDL_Color){60,215,90,255}:(SDL_Color){220,60,60,255};
     DrawText(ren,font,win?"  VICTOIRE !":"  DEFAITE...",WINDOW_W/2-100,py+18,tc);
     char buf[64];
-    if(win){snprintf(buf,sizeof(buf),"Coulé en %d coups !",moves);
-            DrawText(ren,font,buf,px+90,py+72,SK()->text);}
-    else DrawText(ren,font,"Votre flotte a ete coulée...",px+50,py+72,SK()->text);
+    
+    if(win){
+        snprintf(buf,sizeof(buf),"Coulé en %d coups !",moves);
+        DrawText(ren,font,buf,px+90,py+72,SK()->text);
+    }
+    else 
+        DrawText(ren,font,"Votre flotte a ete coulée...",px+50,py+72,SK()->text);
+    
     if(coinsEarned>0){
         snprintf(buf,sizeof(buf),"+ %d pièces gagnées !",coinsEarned);
         DrawText(ren,font,buf,px+90,py+110,(SDL_Color){220,180,40,255});
     }
+    
     DrawText(ren,font,"ESPACE = rejouer",px+140,py+155,SK()->dim);
-    DrawButton(ren,font,btnR); DrawButton(ren,font,btnM);
+    DrawButton(ren,font,btnR); 
+    DrawButton(ren,font,btnM);
 }
 
 void DrawRecords(SDL_Renderer* ren,TTF_Font* font,GameStats* s,Button* btnBack){
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(ren,0,0,0,195);
-    SDL_Rect ov={0,0,WINDOW_W,WINDOW_H}; SDL_RenderFillRect(ren,&ov);
+    SDL_Rect ov={0,0,WINDOW_W,WINDOW_H}; 
+    SDL_RenderFillRect(ren,&ov);
     SDL_SetRenderDrawBlendMode(ren,SDL_BLENDMODE_NONE);
+    
     int px=WINDOW_W/2-260,py=WINDOW_H/2-190;
-    Fill(ren,px,py,520,400,SK()->bg); Box(ren,px,py,520,400,SK()->accent);
+    Fill(ren,px,py,520,400,SK()->bg); 
+    Box(ren,px,py,520,400,SK()->accent);
     DrawText(ren,font,"TABLEAU DES RECORDS",px+100,py+15,SK()->text);
     SDL_Color ac=SK()->accent;
     SDL_SetRenderDrawColor(ren,ac.r,ac.g,ac.b,255);
     SDL_RenderDrawLine(ren,px+10,py+55,px+510,py+55);
+    
     char buf[64];
     snprintf(buf,sizeof(buf),"Victoires :  %d",s->wins);
     DrawText(ren,font,buf,px+70,py+80,(SDL_Color){60,210,80,255});
     snprintf(buf,sizeof(buf),"Défaites  :  %d",s->losses);
     DrawText(ren,font,buf,px+70,py+130,(SDL_Color){220,60,60,255});
     int tot=s->wins+s->losses;
-    if(tot>0){snprintf(buf,sizeof(buf),"Taux     :  %d%%",s->wins*100/tot);
-              DrawText(ren,font,buf,px+70,py+180,SK()->text);}
-    if(s->bestMoves<9999){snprintf(buf,sizeof(buf),"Meilleur  :  %d coups",s->bestMoves);
-                          DrawText(ren,font,buf,px+70,py+230,SK()->accent);}
-    else DrawText(ren,font,"Meilleur  :  ---",px+70,py+210,SK()->dim);
+    
+    if(tot>0){
+        snprintf(buf,sizeof(buf),"Taux     :  %d%%",s->wins*100/tot);
+        DrawText(ren,font,buf,px+70,py+180,SK()->text);
+    }
+    
+    if(s->bestMoves<9999){
+        snprintf(buf,sizeof(buf),"Meilleur  :  %d coups",s->bestMoves);
+        DrawText(ren,font,buf,px+70,py+230,SK()->accent);
+    }
+    else 
+        DrawText(ren,font,"Meilleur  :  ---",px+70,py+210,SK()->dim);
+    
     snprintf(buf,sizeof(buf),"Pièces    :  %d",s->coins);
     DrawText(ren,font,buf,px+70,py+280,(SDL_Color){220,180,40,255});
     DrawButton(ren,font,btnBack);
