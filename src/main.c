@@ -3,6 +3,22 @@
 #include "render.h"
 #include <time.h>
 
+
+/**
+ * @brief Initialise une structure de bouton (Button).
+ * * Cette fonction remplit les coordonnées, les dimensions, la couleur 
+ * et l'étiquette (label) de l'objet bouton passé en paramètre.
+ * * @param b Pointeur vers la structure Button à initialiser.
+ * @param x Coordonnée X du coin supérieur gauche.
+ * @param y Coordonnée Y du coin supérieur gauche.
+ * @param w Largeur du bouton.
+ * @param h Hauteur du bouton.
+ * @param r Composante rouge de la couleur (0-255).
+ * @param g Composante verte (0-255).
+ * @param bl Composante bleue (0-255).
+ * @param lbl Texte à afficher sur le bouton.
+ */
+
 static void MkBtn(Button* b,int x,int y,int w,int h,
                   Uint8 r,Uint8 g,Uint8 bl,const char* lbl){
     b->rect=(SDL_Rect){x,y,w,h}; 
@@ -11,11 +27,29 @@ static void MkBtn(Button* b,int x,int y,int w,int h,
     strncpy(b->label,lbl,sizeof(b->label)-1);
     b->label[sizeof(b->label)-1]='\0';
 }
+
+/**
+ * @brief Vérifie si la souris survole le bouton.
+ * * Met à jour l'état interne `isHovered` du bouton en fonction 
+ * des coordonnées actuelles de la souris.
+ * * @param b Pointeur vers le bouton à tester.
+ * @param mx Position X actuelle de la souris.
+ * @param my Position Y actuelle de la souris.
+ */
+
 static void Hover(Button* b,int mx,int my){
     b->isHovered=IsPointInRect(mx,my,b->rect);
 }
 
-/* Coins earned per game — reward scales with difficulty */
+/**
+ * @brief Calcule les pièces gagnées par partie.
+ * * La récompense évolue en fonction du résultat (victoire ou défaite), 
+ * du nombre de navires coulés et du niveau de difficulté de l'IA.
+ * * @param win Indique si la partie est gagnée (true).
+ * @param sunkCount Nombre total de navires coulés durant la partie.
+ * @param diff Niveau de difficulté de l'IA (FACILE, NORMAL, EXPERT).
+ * @return int Le nombre total de pièces à attribuer au joueur.
+ */
 static int CalcCoins(bool win,int sunkCount,AIDifficulty diff){
     int base=0;
     if(win){
