@@ -10,6 +10,16 @@ void ClearBoard(GameBoard* b) {
     b->shipsLeft = 0;
 }
 
+/**
+ * @brief Vérifie si un navire peut être placé à une position donnée.
+ * * Contrôle les limites de la grille et s'assure qu'aucun autre navire 
+ * n'est présent dans les cellules adjacentes (incluant les diagonales).
+ * * @param b Le plateau de jeu.
+ * @param r, c Coordonnées de départ (ligne, colonne).
+ * @param size Taille du navire.
+ * @param vertical Orientation.
+ * @return true si le placement est valide.
+ */
 bool CanPlaceShip(GameBoard* b, int r, int c, int size, bool vertical) {
     for (int i = 0; i < size; i++) {
         int cr = vertical ? r+i : r;
@@ -35,6 +45,12 @@ void PlaceShip(GameBoard* b, int r, int c, int size, bool vertical) {
     }
 }
 
+
+/**
+ * @brief Place les navires de manière aléatoire sur le plateau.
+ * * Utilise une boucle "while" pour essayer des positions jusqu'à ce 
+ * que toute la flotte soit placée selon les règles.
+ */
 void RandomPlaceFull(GameBoard* b) {
     ClearBoard(b);
     for (int i = 0; i < 10; i++) {
@@ -56,7 +72,10 @@ bool IsPointInRect(int x, int y, SDL_Rect rect) {
            y >= rect.y && y <= rect.y+rect.h;
 }
 
-
+/**
+ * @brief Vérifie si toutes les cellules d'un navire touché sont à l'état CELL_HIT.
+ * @return true si le navire est totalement détruit.
+ */
 static bool ShipIsSunk(GameBoard* b, int r, int c) {
     int dr[] = {0,0,1,-1};
     int dc[] = {1,-1,0,0};
@@ -75,6 +94,13 @@ static bool ShipIsSunk(GameBoard* b, int r, int c) {
     return true;
 }
 
+
+/**
+ * @brief Marque un navire comme coulé (CELL_SUNK) et remplit les cases 
+ * environnantes avec CELL_NEAR_SUNK.
+ * * Cela permet d'aider le joueur (ou l'IA) à ne pas tirer inutilement 
+ * autour d'un navire déjà détruit.
+ */
 static int MarkSunk(GameBoard* b, int r, int c) {
     int dr[] = {0,0,1,-1};
     int dc[] = {1,-1,0,0};
@@ -239,11 +265,11 @@ static void RecoverFromOrphanedHits(CPUState* cpu, GameBoard* b) {
     }
 }
 
-/* Probability density map for EXPERT hunt phase.
-   For each remaining ship, slide it over every valid position.
-   Count how many times each cell is covered → higher = better target.
-   A position is valid if it contains no MISS/SUNK/NEAR_SUNK cells.
-   NOTE: CELL_SHIP counts as a valid (unshot) cell for the sliding window. */
+/**
+ * @brief Ajoute des cibles potentielles après un tir réussi.
+ * * Si deux touches sont alignées, l'IA privilégie l'axe (horizontal ou vertical) 
+ * pour finir de couler le navire plus rapidement.
+ */
 static void BestHuntCell(GameBoard* b, CPUState* cpu, int* outR, int* outC) {
     int map[GRID_SIZE][GRID_SIZE];
     for (int r = 0; r < GRID_SIZE; r++)
@@ -431,7 +457,10 @@ void ProcessCPUTurn(GameBoard* player, bool* playerTurn,
     }
 }
 
-
+/**
+ * @brief Charge les records depuis le fichier "records.dat".
+ * * Si le fichier n'existe pas, initialise des statistiques vierges.
+ */
 void LoadStats(GameStats* s) {
     s->wins = 0; 
     s->losses = 0; 
@@ -464,6 +493,9 @@ void LoadStats(GameStats* s) {
     fclose(f);
 }
 
+/**
+ * @brief Enregistre les victoires, défaites, pièces et thèmes débloqués.
+ */
 void SaveStats(GameStats* s) {
     FILE* f = fopen("records.dat", "w"); 
     if (!f) 
