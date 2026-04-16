@@ -109,7 +109,7 @@ int main(int argc,char* argv[]){
     SetSkin(sk);
 
     const char* dnames[]={"FACILE","NORMAL","EXPERT"};
-    const char* snames[]={"Ocean","Nuit","Arctique","Rouge","Or","Foret","Plasma","Glace"};
+    const char* snames[]={"Ocean","Nuit","Arctique","Rouge","Or","Forêt","Plasma","Glace"};
 
     int bx=658,bw=430,bh=64,bg2=16;
     Button bPlay,bShop,bSettings,bRecords,bQuit;
@@ -121,8 +121,8 @@ int main(int argc,char* argv[]){
 
     int spx=WINDOW_W/2-220,spy=200;
     Button bDiff,bSkin,bSettBack;
-    MkBtn(&bDiff,    spx,spy,    440,58, 45,55,140,"Difficulte: NORMAL");
-    MkBtn(&bSkin,    spx,spy+110,440,58, 80,55,120,"Theme actif: Ocean");
+    MkBtn(&bDiff,    spx,spy,    440,58, 45,55,140,"Difficulté: NORMAL");
+    MkBtn(&bSkin,    spx,spy+110,440,58, 80,55,120,"Thème actif: Ocean");
     MkBtn(&bSettBack,spx,spy+320,440,58, 60,50,110,"< RETOUR");
 
     static const int SKIN_PRICES[NUM_SKINS]={0,0,150,200,300,400,450,500};
@@ -234,7 +234,7 @@ int main(int argc,char* argv[]){
                 if(ev.type==SDL_MOUSEBUTTONDOWN){
                     if(bDiff.isHovered){
                         diff=(AIDifficulty)((diff+1)%3);
-                        snprintf(bDiff.label,sizeof(bDiff.label),"Difficulte: %s",dnames[diff]);
+                        snprintf(bDiff.label,sizeof(bDiff.label),"Difficulté: %s",dnames[diff]);
                     }
                     if(bSkin.isHovered){
                         /* cycle only through unlocked skins */
