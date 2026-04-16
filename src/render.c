@@ -47,7 +47,7 @@ static const Skin* SK(void){
     return &SKINS[g_skin];
 }
 
-static const char* SKIN_NAMES[NUM_SKINS]={"Ocean","Nuit","Arctique","Rouge","Or","Foret","Plasma","Glace"};
+static const char* SKIN_NAMES[NUM_SKINS]={"Ocean","Nuit","Arctique","Rouge","Or","Forêt","Plasma","Glace"};
 static const int   SKIN_PRICES[NUM_SKINS]={0,0,150,200,300,400,450,500};
 
 static Particle g_p[MAX_PARTICLES]; 
@@ -301,7 +301,7 @@ void DrawMainMenu(SDL_Renderer* ren,TTF_Font* font,
         }
     }
     Box(ren,gx,gy,8*cs,8*cs,acc);
-    DrawText(ren,font,"Apercu de partie...",lx+68,gy+8*cs+10,SK()->dim);
+    DrawText(ren,font,"Aperçu de partie...",lx+68,gy+8*cs+10,SK()->dim);
 
     /* Right panel */
     int rx=638,ry=120;
