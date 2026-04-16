@@ -1,0 +1,1007 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Point Zéro: Référence du fichier src/render.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Point Zéro
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('render_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier render.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="render_8h_source.html">render.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="logic_8h_source.html">logic.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:Skin" id="r_Skin"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSkin.html">Skin</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a42fa793c06073877550ef24f43bcdab4" id="r_a42fa793c06073877550ef24f43bcdab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42fa793c06073877550ef24f43bcdab4">SetSkin</a> (<a class="el" href="common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4">GridSkin</a> s)</td></tr>
+<tr class="memitem:af58681b8d8745ed7ff6baec62a6ba48f" id="r_af58681b8d8745ed7ff6baec62a6ba48f"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structSkin.html">Skin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af58681b8d8745ed7ff6baec62a6ba48f">SK</a> (void)</td></tr>
+<tr class="memitem:acdd2071c6265f44bac6bd7ba36f7b5ca" id="r_acdd2071c6265f44bac6bd7ba36f7b5ca"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdd2071c6265f44bac6bd7ba36f7b5ca">InitParts</a> (void)</td></tr>
+<tr class="memitem:a1747651fc27a844eb51f5eca510dd4d3" id="r_a1747651fc27a844eb51f5eca510dd4d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1747651fc27a844eb51f5eca510dd4d3">UpdateParticles</a> (SDL_Renderer *ren)</td></tr>
+<tr class="memitem:a890b581d6648daaad92a88789e190c05" id="r_a890b581d6648daaad92a88789e190c05"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a890b581d6648daaad92a88789e190c05">Fill</a> (SDL_Renderer *r, int x, int y, int w, int h, SDL_Color c)</td></tr>
+<tr class="memitem:a5c38479e9b256392bae4437af6217767" id="r_a5c38479e9b256392bae4437af6217767"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c38479e9b256392bae4437af6217767">Box</a> (SDL_Renderer *r, int x, int y, int w, int h, SDL_Color c)</td></tr>
+<tr class="memitem:a61f24cb52438cff0f78678b9af83ba0d" id="r_a61f24cb52438cff0f78678b9af83ba0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61f24cb52438cff0f78678b9af83ba0d">DrawText</a> (SDL_Renderer *ren, TTF_Font *font, const char *text, int x, int y, SDL_Color col)</td></tr>
+<tr class="memitem:ae948eb7ca7fdbdb1ad9447060f36d699" id="r_ae948eb7ca7fdbdb1ad9447060f36d699"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae948eb7ca7fdbdb1ad9447060f36d699">DrawButton</a> (SDL_Renderer *ren, TTF_Font *font, <a class="el" href="structButton.html">Button</a> *b)</td></tr>
+<tr class="memitem:a1d61a41c59d8baa7dad512e440ca1892" id="r_a1d61a41c59d8baa7dad512e440ca1892"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d61a41c59d8baa7dad512e440ca1892">DrawCoins</a> (SDL_Renderer *ren, TTF_Font *font, int coins, int x, int y)</td></tr>
+<tr class="memitem:a13bbf22896f9de47d713f5ad2a654d1d" id="r_a13bbf22896f9de47d713f5ad2a654d1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13bbf22896f9de47d713f5ad2a654d1d">DrawSplash</a> (SDL_Renderer *ren, TTF_Font *font, Uint32 ticks)</td></tr>
+<tr class="memitem:a6ba71eee7f5ecf2047b305244296ce7d" id="r_a6ba71eee7f5ecf2047b305244296ce7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ba71eee7f5ecf2047b305244296ce7d">DrawMainMenu</a> (SDL_Renderer *ren, TTF_Font *font, <a class="el" href="structButton.html">Button</a> *play, <a class="el" href="structButton.html">Button</a> *shop, <a class="el" href="structButton.html">Button</a> *settings, <a class="el" href="structButton.html">Button</a> *records, <a class="el" href="structButton.html">Button</a> *quit, int coins)</td></tr>
+<tr class="memitem:a1732a35d466139902ba98a73ab256fde" id="r_a1732a35d466139902ba98a73ab256fde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1732a35d466139902ba98a73ab256fde">DrawSettings</a> (SDL_Renderer *ren, TTF_Font *font, <a class="el" href="structButton.html">Button</a> *diff, <a class="el" href="structButton.html">Button</a> *skin, <a class="el" href="structButton.html">Button</a> *back)</td></tr>
+<tr class="memitem:a1b7fda131d78f982a43710d9dc41f447" id="r_a1b7fda131d78f982a43710d9dc41f447"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b7fda131d78f982a43710d9dc41f447">DrawShop</a> (SDL_Renderer *ren, TTF_Font *font, <a class="el" href="structGameStats.html">GameStats</a> *stats, <a class="el" href="common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4">GridSkin</a> activeSkin, <a class="el" href="structButton.html">Button</a> *btnBuy[<a class="el" href="common_8h.html#af68b3dff6588ba4043edd3e627220b47">NUM_SKINS</a>], <a class="el" href="structButton.html">Button</a> *btnSelect[<a class="el" href="common_8h.html#af68b3dff6588ba4043edd3e627220b47">NUM_SKINS</a>], <a class="el" href="structButton.html">Button</a> *back)</td></tr>
+<tr class="memitem:a7e68ba29321650f75cef1a81e2bb2a88" id="r_a7e68ba29321650f75cef1a81e2bb2a88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e68ba29321650f75cef1a81e2bb2a88">DrawBoard</a> (SDL_Renderer *ren, TTF_Font *font, <a class="el" href="structGameBoard.html">GameBoard</a> *b, int ox, int oy, bool hide, bool dimmed)</td></tr>
+<tr class="memitem:a6b80aa2140adf9c28609575ca83e4a85" id="r_a6b80aa2140adf9c28609575ca83e4a85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b80aa2140adf9c28609575ca83e4a85">DrawPlacementPreview</a> (SDL_Renderer *ren, <a class="el" href="structGameBoard.html">GameBoard</a> *b, int ox, int oy, int hR, int hC, int size, bool isV)</td></tr>
+<tr class="memitem:a8004b28a033ccd509b78c7d0f465e390" id="r_a8004b28a033ccd509b78c7d0f465e390"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8004b28a033ccd509b78c7d0f465e390">DrawPlacementUI</a> (SDL_Renderer *ren, TTF_Font *font, int placed, <a class="el" href="structButton.html">Button</a> *bRand, <a class="el" href="structButton.html">Button</a> *bReset, <a class="el" href="structButton.html">Button</a> *bPret, <a class="el" href="structButton.html">Button</a> *bBack)</td></tr>
+<tr class="memitem:ad24fc8baaa2648da498094d3e718ed44" id="r_ad24fc8baaa2648da498094d3e718ed44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad24fc8baaa2648da498094d3e718ed44">DrawGameUI</a> (SDL_Renderer *ren, TTF_Font *font, <a class="el" href="structGameBoard.html">GameBoard</a> *p, <a class="el" href="structGameBoard.html">GameBoard</a> *e, bool playerTurn, int moves, Uint32 startTick, int coins)</td></tr>
+<tr class="memitem:a12b089156ba4acb35a1507c776c68435" id="r_a12b089156ba4acb35a1507c776c68435"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12b089156ba4acb35a1507c776c68435">DrawGameOver</a> (SDL_Renderer *ren, TTF_Font *font, bool win, int moves, int coinsEarned, <a class="el" href="structButton.html">Button</a> *btnR, <a class="el" href="structButton.html">Button</a> *btnM)</td></tr>
+<tr class="memitem:a80f94833853fdc1f19eb790efb22b5fa" id="r_a80f94833853fdc1f19eb790efb22b5fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80f94833853fdc1f19eb790efb22b5fa">DrawRecords</a> (SDL_Renderer *ren, TTF_Font *font, <a class="el" href="structGameStats.html">GameStats</a> *s, <a class="el" href="structButton.html">Button</a> *btnBack)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a272f7650e6c3bd32ab709264220e69fd" id="r_a272f7650e6c3bd32ab709264220e69fd"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structSkin.html">Skin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a272f7650e6c3bd32ab709264220e69fd">SKINS</a> [<a class="el" href="common_8h.html#af68b3dff6588ba4043edd3e627220b47">NUM_SKINS</a>]</td></tr>
+<tr class="memitem:a12b2e1f7e3a9e309ad0838d84fd4f8a1" id="r_a12b2e1f7e3a9e309ad0838d84fd4f8a1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4">GridSkin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12b2e1f7e3a9e309ad0838d84fd4f8a1">g_skin</a> =<a class="el" href="common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4a46c4d701725e1333522005825abab4d8">SKIN_OCEAN</a></td></tr>
+<tr class="memitem:a562fe59d06f2ee4cd8129f59ce3a4b80" id="r_a562fe59d06f2ee4cd8129f59ce3a4b80"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a562fe59d06f2ee4cd8129f59ce3a4b80">SKIN_NAMES</a> [<a class="el" href="common_8h.html#af68b3dff6588ba4043edd3e627220b47">NUM_SKINS</a>] ={&quot;Océan&quot;,&quot;Nuit&quot;,&quot;Arctique&quot;,&quot;Rouge&quot;,&quot;Or&quot;,&quot;Forêt&quot;,&quot;Plasma&quot;,&quot;Glace&quot;}</td></tr>
+<tr class="memitem:ae6bbc56f836d70ae98160aebe89990c2" id="r_ae6bbc56f836d70ae98160aebe89990c2"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6bbc56f836d70ae98160aebe89990c2">SKIN_PRICES</a> [<a class="el" href="common_8h.html#af68b3dff6588ba4043edd3e627220b47">NUM_SKINS</a>] ={0,0,150,200,300,400,450,500}</td></tr>
+<tr class="memitem:a1b6a4bd6690aed04c0baa4b6c5f9aa0b" id="r_a1b6a4bd6690aed04c0baa4b6c5f9aa0b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structParticle.html">Particle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b6a4bd6690aed04c0baa4b6c5f9aa0b">g_p</a> [<a class="el" href="common_8h.html#a43b318e80d2457f5ce3e00a6cf1543c8">MAX_PARTICLES</a>]</td></tr>
+<tr class="memitem:a2a7e354dd978b9f1ddc67074b5d7f364" id="r_a2a7e354dd978b9f1ddc67074b5d7f364"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a7e354dd978b9f1ddc67074b5d7f364">g_pInit</a> =false</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a5c38479e9b256392bae4437af6217767" name="a5c38479e9b256392bae4437af6217767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c38479e9b256392bae4437af6217767">&#9670;&#160;</a></span>Box()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Box </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e68ba29321650f75cef1a81e2bb2a88" name="a7e68ba29321650f75cef1a81e2bb2a88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e68ba29321650f75cef1a81e2bb2a88">&#9670;&#160;</a></span>DrawBoard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawBoard </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ox</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>oy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>hide</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>dimmed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae948eb7ca7fdbdb1ad9447060f36d699" name="ae948eb7ca7fdbdb1ad9447060f36d699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae948eb7ca7fdbdb1ad9447060f36d699">&#9670;&#160;</a></span>DrawButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawButton </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d61a41c59d8baa7dad512e440ca1892" name="a1d61a41c59d8baa7dad512e440ca1892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d61a41c59d8baa7dad512e440ca1892">&#9670;&#160;</a></span>DrawCoins()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawCoins </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>coins</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12b089156ba4acb35a1507c776c68435" name="a12b089156ba4acb35a1507c776c68435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b089156ba4acb35a1507c776c68435">&#9670;&#160;</a></span>DrawGameOver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawGameOver </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>win</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>moves</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>coinsEarned</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>btnR</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>btnM</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad24fc8baaa2648da498094d3e718ed44" name="ad24fc8baaa2648da498094d3e718ed44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24fc8baaa2648da498094d3e718ed44">&#9670;&#160;</a></span>DrawGameUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawGameUI </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>e</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>playerTurn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>moves</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32</td>          <td class="paramname"><span class="paramname"><em>startTick</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>coins</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ba71eee7f5ecf2047b305244296ce7d" name="a6ba71eee7f5ecf2047b305244296ce7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ba71eee7f5ecf2047b305244296ce7d">&#9670;&#160;</a></span>DrawMainMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawMainMenu </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>play</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>shop</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>settings</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>records</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>quit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>coins</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b80aa2140adf9c28609575ca83e4a85" name="a6b80aa2140adf9c28609575ca83e4a85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b80aa2140adf9c28609575ca83e4a85">&#9670;&#160;</a></span>DrawPlacementPreview()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawPlacementPreview </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ox</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>oy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>hR</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>hC</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isV</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8004b28a033ccd509b78c7d0f465e390" name="a8004b28a033ccd509b78c7d0f465e390"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8004b28a033ccd509b78c7d0f465e390">&#9670;&#160;</a></span>DrawPlacementUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawPlacementUI </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>placed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>bRand</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>bReset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>bPret</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>bBack</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a80f94833853fdc1f19eb790efb22b5fa" name="a80f94833853fdc1f19eb790efb22b5fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80f94833853fdc1f19eb790efb22b5fa">&#9670;&#160;</a></span>DrawRecords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawRecords </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGameStats.html">GameStats</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>btnBack</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1732a35d466139902ba98a73ab256fde" name="a1732a35d466139902ba98a73ab256fde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1732a35d466139902ba98a73ab256fde">&#9670;&#160;</a></span>DrawSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawSettings </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>diff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>skin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>back</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b7fda131d78f982a43710d9dc41f447" name="a1b7fda131d78f982a43710d9dc41f447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b7fda131d78f982a43710d9dc41f447">&#9670;&#160;</a></span>DrawShop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawShop </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structGameStats.html">GameStats</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4">GridSkin</a></td>          <td class="paramname"><span class="paramname"><em>activeSkin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>btnBuy</em></span>[NUM_SKINS], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>btnSelect</em></span>[NUM_SKINS], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structButton.html">Button</a> *</td>          <td class="paramname"><span class="paramname"><em>back</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13bbf22896f9de47d713f5ad2a654d1d" name="a13bbf22896f9de47d713f5ad2a654d1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13bbf22896f9de47d713f5ad2a654d1d">&#9670;&#160;</a></span>DrawSplash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawSplash </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32</td>          <td class="paramname"><span class="paramname"><em>ticks</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61f24cb52438cff0f78678b9af83ba0d" name="a61f24cb52438cff0f78678b9af83ba0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61f24cb52438cff0f78678b9af83ba0d">&#9670;&#160;</a></span>DrawText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrawText </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *</td>          <td class="paramname"><span class="paramname"><em>font</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color</td>          <td class="paramname"><span class="paramname"><em>col</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a890b581d6648daaad92a88789e190c05" name="a890b581d6648daaad92a88789e190c05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a890b581d6648daaad92a88789e190c05">&#9670;&#160;</a></span>Fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Fill </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acdd2071c6265f44bac6bd7ba36f7b5ca" name="acdd2071c6265f44bac6bd7ba36f7b5ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdd2071c6265f44bac6bd7ba36f7b5ca">&#9670;&#160;</a></span>InitParts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InitParts </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42fa793c06073877550ef24f43bcdab4" name="a42fa793c06073877550ef24f43bcdab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42fa793c06073877550ef24f43bcdab4">&#9670;&#160;</a></span>SetSkin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetSkin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4">GridSkin</a></td>          <td class="paramname"><span class="paramname"><em>s</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af58681b8d8745ed7ff6baec62a6ba48f" name="af58681b8d8745ed7ff6baec62a6ba48f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af58681b8d8745ed7ff6baec62a6ba48f">&#9670;&#160;</a></span>SK()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structSkin.html">Skin</a> * SK </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1747651fc27a844eb51f5eca510dd4d3" name="a1747651fc27a844eb51f5eca510dd4d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1747651fc27a844eb51f5eca510dd4d3">&#9670;&#160;</a></span>UpdateParticles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UpdateParticles </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *</td>          <td class="paramname"><span class="paramname"><em>ren</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentation des variables</h2>
+<a id="a1b6a4bd6690aed04c0baa4b6c5f9aa0b" name="a1b6a4bd6690aed04c0baa4b6c5f9aa0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b6a4bd6690aed04c0baa4b6c5f9aa0b">&#9670;&#160;</a></span>g_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structParticle.html">Particle</a> g_p[<a class="el" href="common_8h.html#a43b318e80d2457f5ce3e00a6cf1543c8">MAX_PARTICLES</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a7e354dd978b9f1ddc67074b5d7f364" name="a2a7e354dd978b9f1ddc67074b5d7f364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a7e354dd978b9f1ddc67074b5d7f364">&#9670;&#160;</a></span>g_pInit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool g_pInit =false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12b2e1f7e3a9e309ad0838d84fd4f8a1" name="a12b2e1f7e3a9e309ad0838d84fd4f8a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b2e1f7e3a9e309ad0838d84fd4f8a1">&#9670;&#160;</a></span>g_skin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4">GridSkin</a> g_skin =<a class="el" href="common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4a46c4d701725e1333522005825abab4d8">SKIN_OCEAN</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a562fe59d06f2ee4cd8129f59ce3a4b80" name="a562fe59d06f2ee4cd8129f59ce3a4b80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a562fe59d06f2ee4cd8129f59ce3a4b80">&#9670;&#160;</a></span>SKIN_NAMES</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* SKIN_NAMES[<a class="el" href="common_8h.html#af68b3dff6588ba4043edd3e627220b47">NUM_SKINS</a>] ={&quot;Océan&quot;,&quot;Nuit&quot;,&quot;Arctique&quot;,&quot;Rouge&quot;,&quot;Or&quot;,&quot;Forêt&quot;,&quot;Plasma&quot;,&quot;Glace&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6bbc56f836d70ae98160aebe89990c2" name="ae6bbc56f836d70ae98160aebe89990c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6bbc56f836d70ae98160aebe89990c2">&#9670;&#160;</a></span>SKIN_PRICES</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int SKIN_PRICES[<a class="el" href="common_8h.html#af68b3dff6588ba4043edd3e627220b47">NUM_SKINS</a>] ={0,0,150,200,300,400,450,500}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a272f7650e6c3bd32ab709264220e69fd" name="a272f7650e6c3bd32ab709264220e69fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a272f7650e6c3bd32ab709264220e69fd">&#9670;&#160;</a></span>SKINS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structSkin.html">Skin</a> SKINS[<a class="el" href="common_8h.html#af68b3dff6588ba4043edd3e627220b47">NUM_SKINS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="render_8c.html">render.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

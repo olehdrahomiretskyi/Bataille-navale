@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Point Zéro: Référence du fichier src/logic.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Point Zéro
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('logic_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier logic.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
+</div>
+<p><a href="logic_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a50f47230b6fa873882a5fa79da702984" id="r_a50f47230b6fa873882a5fa79da702984"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50f47230b6fa873882a5fa79da702984">ClearBoard</a> (<a class="el" href="structGameBoard.html">GameBoard</a> *b)</td></tr>
+<tr class="memdesc:a50f47230b6fa873882a5fa79da702984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialise complètement le plateau de jeu.  <br /></td></tr>
+<tr class="memitem:a49726669507ddb544bf46e29f20b7b0c" id="r_a49726669507ddb544bf46e29f20b7b0c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49726669507ddb544bf46e29f20b7b0c">CanPlaceShip</a> (<a class="el" href="structGameBoard.html">GameBoard</a> *b, int r, int c, int size, bool vertical)</td></tr>
+<tr class="memdesc:a49726669507ddb544bf46e29f20b7b0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si un navire peut être placé à une position donnée.  <br /></td></tr>
+<tr class="memitem:aa53d95c4033a36d3679b5fea5b7f38fb" id="r_aa53d95c4033a36d3679b5fea5b7f38fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa53d95c4033a36d3679b5fea5b7f38fb">PlaceShip</a> (<a class="el" href="structGameBoard.html">GameBoard</a> *b, int r, int c, int size, bool vertical)</td></tr>
+<tr class="memdesc:aa53d95c4033a36d3679b5fea5b7f38fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place un navire sur le plateau de jeu.  <br /></td></tr>
+<tr class="memitem:a3d266def53ff0f4901ae4013f2958211" id="r_a3d266def53ff0f4901ae4013f2958211"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d266def53ff0f4901ae4013f2958211">RandomPlaceFull</a> (<a class="el" href="structGameBoard.html">GameBoard</a> *b)</td></tr>
+<tr class="memdesc:a3d266def53ff0f4901ae4013f2958211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place les navires de manière aléatoire sur le plateau.  <br /></td></tr>
+<tr class="memitem:aa96bd72e91e20c9e01f650ff9520d567" id="r_aa96bd72e91e20c9e01f650ff9520d567"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa96bd72e91e20c9e01f650ff9520d567">IsPointInRect</a> (int x, int y, SDL_Rect rect)</td></tr>
+<tr class="memdesc:aa96bd72e91e20c9e01f650ff9520d567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le point (x, y) est dans le rectangle (inclusif).  <br /></td></tr>
+<tr class="memitem:a4ca29ac893983f46ca7e2f788f97834c" id="r_a4ca29ac893983f46ca7e2f788f97834c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ca29ac893983f46ca7e2f788f97834c">InitCPUState</a> (<a class="el" href="structCPUState.html">CPUState</a> *cpu)</td></tr>
+<tr class="memdesc:a4ca29ac893983f46ca7e2f788f97834c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise l'état de l'IA (compteurs et schéma des navires).  <br /></td></tr>
+<tr class="memitem:aba45ec0fef49b2d5d5e547aa74f9bfc2" id="r_aba45ec0fef49b2d5d5e547aa74f9bfc2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba45ec0fef49b2d5d5e547aa74f9bfc2">CheckSunkShips</a> (<a class="el" href="structGameBoard.html">GameBoard</a> *b)</td></tr>
+<tr class="memdesc:aba45ec0fef49b2d5d5e547aa74f9bfc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parcourt la grille, marque les navires coulés et renvoie leur taille.  <br /></td></tr>
+<tr class="memitem:a1e7c3b68edd1bc359de32d3c552f3ff6" id="r_a1e7c3b68edd1bc359de32d3c552f3ff6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e7c3b68edd1bc359de32d3c552f3ff6">ProcessCPUTurn</a> (<a class="el" href="structGameBoard.html">GameBoard</a> *player, bool *playerTurn, <a class="el" href="structCPUState.html">CPUState</a> *cpu, <a class="el" href="common_8h.html#a4425724cd661aeb6715aa4a7876f4b65">AIDifficulty</a> diff)</td></tr>
+<tr class="memdesc:a1e7c3b68edd1bc359de32d3c552f3ff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère le tour de l'IA selon la difficulté choisie.  <br /></td></tr>
+<tr class="memitem:a3e42315b67e34d06a262450dcbe6bc5e" id="r_a3e42315b67e34d06a262450dcbe6bc5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e42315b67e34d06a262450dcbe6bc5e">LoadStats</a> (<a class="el" href="structGameStats.html">GameStats</a> *s)</td></tr>
+<tr class="memdesc:a3e42315b67e34d06a262450dcbe6bc5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les records depuis le fichier "records.dat".  <br /></td></tr>
+<tr class="memitem:acf9a9acb097915e7c6e4658806546ff5" id="r_acf9a9acb097915e7c6e4658806546ff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf9a9acb097915e7c6e4658806546ff5">SaveStats</a> (<a class="el" href="structGameStats.html">GameStats</a> *s)</td></tr>
+<tr class="memdesc:acf9a9acb097915e7c6e4658806546ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistre les victoires, défaites, pièces et thèmes débloqués.  <br /></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a49726669507ddb544bf46e29f20b7b0c" name="a49726669507ddb544bf46e29f20b7b0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49726669507ddb544bf46e29f20b7b0c">&#9670;&#160;</a></span>CanPlaceShip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CanPlaceShip </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>vertical</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si un navire peut être placé à une position donnée. </p>
+<ul>
+<li>Contrôle les limites de la grille et s'assure qu'aucun autre navire n'est présent dans les cellules adjacentes (incluant les diagonales).</li>
+<li><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Le plateau de jeu. </td></tr>
+    <tr><td class="paramname">r,c</td><td>Coordonnées de départ (ligne, colonne). </td></tr>
+    <tr><td class="paramname">size</td><td>Taille du navire. </td></tr>
+    <tr><td class="paramname">vertical</td><td>Orientation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si le placement est valide. </dd></dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="aba45ec0fef49b2d5d5e547aa74f9bfc2" name="aba45ec0fef49b2d5d5e547aa74f9bfc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba45ec0fef49b2d5d5e547aa74f9bfc2">&#9670;&#160;</a></span>CheckSunkShips()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CheckSunkShips </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parcourt la grille, marque les navires coulés et renvoie leur taille. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Pointeur vers le <a class="el" href="structGameBoard.html">GameBoard</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Taille du navire coulé ou 0 si aucun nouveau navire n'est coulé. </dd></dl>
+
+</div>
+</div>
+<a id="a50f47230b6fa873882a5fa79da702984" name="a50f47230b6fa873882a5fa79da702984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50f47230b6fa873882a5fa79da702984">&#9670;&#160;</a></span>ClearBoard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClearBoard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réinitialise complètement le plateau de jeu. </p>
+<ul>
+<li>Cette fonction parcourt l'intégralité de la grille pour vider chaque cellule et remet le compteur de navires restants à zéro.</li>
+<li><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Un pointeur vers la structure <a class="el" href="structGameBoard.html">GameBoard</a> à réinitialiser. </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="a4ca29ac893983f46ca7e2f788f97834c" name="a4ca29ac893983f46ca7e2f788f97834c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ca29ac893983f46ca7e2f788f97834c">&#9670;&#160;</a></span>InitCPUState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InitCPUState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structCPUState.html">CPUState</a> *</td>          <td class="paramname"><span class="paramname"><em>cpu</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise l'état de l'IA (compteurs et schéma des navires). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cpu</td><td>Pointeur vers la structure <a class="el" href="structCPUState.html">CPUState</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa96bd72e91e20c9e01f650ff9520d567" name="aa96bd72e91e20c9e01f650ff9520d567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa96bd72e91e20c9e01f650ff9520d567">&#9670;&#160;</a></span>IsPointInRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IsPointInRect </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect</td>          <td class="paramname"><span class="paramname"><em>rect</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si le point (x, y) est dans le rectangle (inclusif). </p>
+<dl class="section return"><dt>Renvoie</dt><dd>true si collision, sinon false. </dd></dl>
+
+</div>
+</div>
+<a id="a3e42315b67e34d06a262450dcbe6bc5e" name="a3e42315b67e34d06a262450dcbe6bc5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e42315b67e34d06a262450dcbe6bc5e">&#9670;&#160;</a></span>LoadStats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LoadStats </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameStats.html">GameStats</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les records depuis le fichier "records.dat". </p>
+<ul>
+<li>Si le fichier n'existe pas, initialise des statistiques vierges. </li>
+</ul>
+
+</div>
+</div>
+<a id="aa53d95c4033a36d3679b5fea5b7f38fb" name="aa53d95c4033a36d3679b5fea5b7f38fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa53d95c4033a36d3679b5fea5b7f38fb">&#9670;&#160;</a></span>PlaceShip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlaceShip </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>vertical</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Place un navire sur le plateau de jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Pointeur vers la structure <a class="el" href="structGameBoard.html">GameBoard</a>. </td></tr>
+    <tr><td class="paramname">r</td><td>Indice de la ligne de départ (row). </td></tr>
+    <tr><td class="paramname">c</td><td>Indice de la colonne de départ (column). </td></tr>
+    <tr><td class="paramname">size</td><td>Nombre de cases occupées par le navire. </td></tr>
+    <tr><td class="paramname">vertical</td><td>Si vrai (true), le navire s'étend sur les lignes (r+i). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1e7c3b68edd1bc359de32d3c552f3ff6" name="a1e7c3b68edd1bc359de32d3c552f3ff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e7c3b68edd1bc359de32d3c552f3ff6">&#9670;&#160;</a></span>ProcessCPUTurn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProcessCPUTurn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>player</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>playerTurn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structCPUState.html">CPUState</a> *</td>          <td class="paramname"><span class="paramname"><em>cpu</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="common_8h.html#a4425724cd661aeb6715aa4a7876f4b65">AIDifficulty</a></td>          <td class="paramname"><span class="paramname"><em>diff</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gère le tour de l'IA selon la difficulté choisie. </p>
+<ul>
+<li>Détermine la cible (aléatoire, pile de ciblage ou carte de probabilité), traite le résultat du tir (touche, coulé ou manqué) et met à jour l'état du jeu ainsi que le tour des joueurs.</li>
+<li><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>plateau du joueur. </td></tr>
+    <tr><td class="paramname">playerTurn</td><td>pointeur vers le booléen contrôlant le tour du joueur. </td></tr>
+    <tr><td class="paramname">cpu</td><td>état interne de l'IA. </td></tr>
+    <tr><td class="paramname">diff</td><td>niveau de difficulté (FACILE, NORMAL, EXPERT). </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="a3d266def53ff0f4901ae4013f2958211" name="a3d266def53ff0f4901ae4013f2958211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d266def53ff0f4901ae4013f2958211">&#9670;&#160;</a></span>RandomPlaceFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RandomPlaceFull </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameBoard.html">GameBoard</a> *</td>          <td class="paramname"><span class="paramname"><em>b</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Place les navires de manière aléatoire sur le plateau. </p>
+<ul>
+<li>Utilise une boucle "while" pour essayer des positions jusqu'à ce que toute la flotte soit placée selon les règles. </li>
+</ul>
+
+</div>
+</div>
+<a id="acf9a9acb097915e7c6e4658806546ff5" name="acf9a9acb097915e7c6e4658806546ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf9a9acb097915e7c6e4658806546ff5">&#9670;&#160;</a></span>SaveStats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SaveStats </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameStats.html">GameStats</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enregistre les victoires, défaites, pièces et thèmes débloqués. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="logic_8h.html">logic.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

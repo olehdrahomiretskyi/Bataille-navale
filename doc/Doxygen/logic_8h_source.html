@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Point Zéro:  Fichier source de src/logic.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Point Zéro
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('logic_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">logic.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="logic_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef LOGIC_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define LOGIC_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keywordtype">void</span> <a class="code hl_function" href="logic_8h.html#a50f47230b6fa873882a5fa79da702984">ClearBoard</a>     (<a class="code hl_struct" href="structGameBoard.html">GameBoard</a>* b);</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keywordtype">bool</span> <a class="code hl_function" href="logic_8h.html#a49726669507ddb544bf46e29f20b7b0c">CanPlaceShip</a>   (<a class="code hl_struct" href="structGameBoard.html">GameBoard</a>* b, <span class="keywordtype">int</span> r, <span class="keywordtype">int</span> c, <span class="keywordtype">int</span> size, <span class="keywordtype">bool</span> vertical);</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> <a class="code hl_function" href="logic_8h.html#aa53d95c4033a36d3679b5fea5b7f38fb">PlaceShip</a>      (<a class="code hl_struct" href="structGameBoard.html">GameBoard</a>* b, <span class="keywordtype">int</span> r, <span class="keywordtype">int</span> c, <span class="keywordtype">int</span> size, <span class="keywordtype">bool</span> vertical);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> <a class="code hl_function" href="logic_8h.html#a3d266def53ff0f4901ae4013f2958211">RandomPlaceFull</a>(<a class="code hl_struct" href="structGameBoard.html">GameBoard</a>* b);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">bool</span> <a class="code hl_function" href="logic_8h.html#aa96bd72e91e20c9e01f650ff9520d567">IsPointInRect</a>  (<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, SDL_Rect rect);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keywordtype">void</span> <a class="code hl_function" href="logic_8h.html#a4ca29ac893983f46ca7e2f788f97834c">InitCPUState</a>   (<a class="code hl_struct" href="structCPUState.html">CPUState</a>* cpu);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">int</span>  <a class="code hl_function" href="logic_8h.html#aba45ec0fef49b2d5d5e547aa74f9bfc2">CheckSunkShips</a> (<a class="code hl_struct" href="structGameBoard.html">GameBoard</a>* b);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">void</span> <a class="code hl_function" href="logic_8h.html#a1e7c3b68edd1bc359de32d3c552f3ff6">ProcessCPUTurn</a> (<a class="code hl_struct" href="structGameBoard.html">GameBoard</a>* player, <span class="keywordtype">bool</span>* playerTurn,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>                     <a class="code hl_struct" href="structCPUState.html">CPUState</a>* cpu, <a class="code hl_enumeration" href="common_8h.html#a4425724cd661aeb6715aa4a7876f4b65">AIDifficulty</a> diff);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keywordtype">void</span> <a class="code hl_function" href="logic_8h.html#a3e42315b67e34d06a262450dcbe6bc5e">LoadStats</a>      (<a class="code hl_struct" href="structGameStats.html">GameStats</a>* s);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">void</span> <a class="code hl_function" href="logic_8h.html#acf9a9acb097915e7c6e4658806546ff5">SaveStats</a>      (<a class="code hl_struct" href="structGameStats.html">GameStats</a>* s);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acommon_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div></div>
+<div class="ttc" id="acommon_8h_html_a4425724cd661aeb6715aa4a7876f4b65"><div class="ttname"><a href="common_8h.html#a4425724cd661aeb6715aa4a7876f4b65">AIDifficulty</a></div><div class="ttdeci">AIDifficulty</div><div class="ttdef"><b>Definition</b> common.h:33</div></div>
+<div class="ttc" id="alogic_8h_html_a1e7c3b68edd1bc359de32d3c552f3ff6"><div class="ttname"><a href="logic_8h.html#a1e7c3b68edd1bc359de32d3c552f3ff6">ProcessCPUTurn</a></div><div class="ttdeci">void ProcessCPUTurn(GameBoard *player, bool *playerTurn, CPUState *cpu, AIDifficulty diff)</div><div class="ttdoc">Gère le tour de l&#39;IA selon la difficulté choisie.</div><div class="ttdef"><b>Definition</b> logic.c:479</div></div>
+<div class="ttc" id="alogic_8h_html_a3d266def53ff0f4901ae4013f2958211"><div class="ttname"><a href="logic_8h.html#a3d266def53ff0f4901ae4013f2958211">RandomPlaceFull</a></div><div class="ttdeci">void RandomPlaceFull(GameBoard *b)</div><div class="ttdoc">Place les navires de manière aléatoire sur le plateau.</div><div class="ttdef"><b>Definition</b> logic.c:69</div></div>
+<div class="ttc" id="alogic_8h_html_a3e42315b67e34d06a262450dcbe6bc5e"><div class="ttname"><a href="logic_8h.html#a3e42315b67e34d06a262450dcbe6bc5e">LoadStats</a></div><div class="ttdeci">void LoadStats(GameStats *s)</div><div class="ttdoc">Charge les records depuis le fichier &quot;records.dat&quot;.</div><div class="ttdef"><b>Definition</b> logic.c:546</div></div>
+<div class="ttc" id="alogic_8h_html_a49726669507ddb544bf46e29f20b7b0c"><div class="ttname"><a href="logic_8h.html#a49726669507ddb544bf46e29f20b7b0c">CanPlaceShip</a></div><div class="ttdeci">bool CanPlaceShip(GameBoard *b, int r, int c, int size, bool vertical)</div><div class="ttdoc">Vérifie si un navire peut être placé à une position donnée.</div><div class="ttdef"><b>Definition</b> logic.c:29</div></div>
+<div class="ttc" id="alogic_8h_html_a4ca29ac893983f46ca7e2f788f97834c"><div class="ttname"><a href="logic_8h.html#a4ca29ac893983f46ca7e2f788f97834c">InitCPUState</a></div><div class="ttdeci">void InitCPUState(CPUState *cpu)</div><div class="ttdoc">Initialise l&#39;état de l&#39;IA (compteurs et schéma des navires).</div><div class="ttdef"><b>Definition</b> logic.c:183</div></div>
+<div class="ttc" id="alogic_8h_html_a50f47230b6fa873882a5fa79da702984"><div class="ttname"><a href="logic_8h.html#a50f47230b6fa873882a5fa79da702984">ClearBoard</a></div><div class="ttdeci">void ClearBoard(GameBoard *b)</div><div class="ttdoc">Réinitialise complètement le plateau de jeu.</div><div class="ttdef"><b>Definition</b> logic.c:12</div></div>
+<div class="ttc" id="alogic_8h_html_aa53d95c4033a36d3679b5fea5b7f38fb"><div class="ttname"><a href="logic_8h.html#aa53d95c4033a36d3679b5fea5b7f38fb">PlaceShip</a></div><div class="ttdeci">void PlaceShip(GameBoard *b, int r, int c, int size, bool vertical)</div><div class="ttdoc">Place un navire sur le plateau de jeu.</div><div class="ttdef"><b>Definition</b> logic.c:56</div></div>
+<div class="ttc" id="alogic_8h_html_aa96bd72e91e20c9e01f650ff9520d567"><div class="ttname"><a href="logic_8h.html#aa96bd72e91e20c9e01f650ff9520d567">IsPointInRect</a></div><div class="ttdeci">bool IsPointInRect(int x, int y, SDL_Rect rect)</div><div class="ttdoc">Vérifie si le point (x, y) est dans le rectangle (inclusif).</div><div class="ttdef"><b>Definition</b> logic.c:90</div></div>
+<div class="ttc" id="alogic_8h_html_aba45ec0fef49b2d5d5e547aa74f9bfc2"><div class="ttname"><a href="logic_8h.html#aba45ec0fef49b2d5d5e547aa74f9bfc2">CheckSunkShips</a></div><div class="ttdeci">int CheckSunkShips(GameBoard *b)</div><div class="ttdoc">Parcourt la grille, marque les navires coulés et renvoie leur taille.</div><div class="ttdef"><b>Definition</b> logic.c:169</div></div>
+<div class="ttc" id="alogic_8h_html_acf9a9acb097915e7c6e4658806546ff5"><div class="ttname"><a href="logic_8h.html#acf9a9acb097915e7c6e4658806546ff5">SaveStats</a></div><div class="ttdeci">void SaveStats(GameStats *s)</div><div class="ttdoc">Enregistre les victoires, défaites, pièces et thèmes débloqués.</div><div class="ttdef"><b>Definition</b> logic.c:581</div></div>
+<div class="ttc" id="astructCPUState_html"><div class="ttname"><a href="structCPUState.html">CPUState</a></div><div class="ttdef"><b>Definition</b> common.h:52</div></div>
+<div class="ttc" id="astructGameBoard_html"><div class="ttname"><a href="structGameBoard.html">GameBoard</a></div><div class="ttdef"><b>Definition</b> common.h:40</div></div>
+<div class="ttc" id="astructGameStats_html"><div class="ttname"><a href="structGameStats.html">GameStats</a></div><div class="ttdef"><b>Definition</b> common.h:64</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="logic_8h.html">logic.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>
