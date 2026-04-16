@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['savestats_0',['SaveStats',['../logic_8c.html#acf9a9acb097915e7c6e4658806546ff5',1,'SaveStats(GameStats *s):&#160;logic.c'],['../logic_8h.html#acf9a9acb097915e7c6e4658806546ff5',1,'SaveStats(GameStats *s):&#160;logic.c']]],
+  ['schema_1',['SCHEMA',['../logic_8c.html#aed476d88a6a09c3611c85a6a447d2053',1,'logic.c']]],
+  ['setskin_2',['SetSkin',['../render_8c.html#a42fa793c06073877550ef24f43bcdab4',1,'SetSkin(GridSkin s):&#160;render.c'],['../render_8h.html#a42fa793c06073877550ef24f43bcdab4',1,'SetSkin(GridSkin s):&#160;render.c']]],
+  ['ship_3',['ship',['../structSkin.html#af68ba5758f1b5b4281105702c0fadf81',1,'Skin']]],
+  ['shipissunk_4',['ShipIsSunk',['../logic_8c.html#af3da98855fa7c36246abb42ed22a4038',1,'logic.c']]],
+  ['shipsleft_5',['shipsLeft',['../structGameBoard.html#a3c314490d40b85836dc71b8e69922e29',1,'GameBoard']]],
+  ['size_6',['size',['../structCPUState.html#acad64e793cb1cdde28a9190302fa6f4b',1,'CPUState']]],
+  ['sk_7',['SK',['../render_8c.html#af58681b8d8745ed7ff6baec62a6ba48f',1,'render.c']]],
+  ['skin_8',['Skin',['../structSkin.html',1,'']]],
+  ['skin_5farctique_9',['SKIN_ARCTIQUE',['../common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4ab1a574b27edd7ac56462503aa0aef3b0',1,'common.h']]],
+  ['skin_5fforet_10',['SKIN_FORET',['../common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4ac9ae6b8beeb03c3c75e01a0dfc32b392',1,'common.h']]],
+  ['skin_5fglace_11',['SKIN_GLACE',['../common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4ae65b43d01fb489067d2ae4305f60f2a1',1,'common.h']]],
+  ['skin_5fnames_12',['SKIN_NAMES',['../render_8c.html#a562fe59d06f2ee4cd8129f59ce3a4b80',1,'render.c']]],
+  ['skin_5fnuit_13',['SKIN_NUIT',['../common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4a264a0458c62bc169cb5a55220cc9d439',1,'common.h']]],
+  ['skin_5focean_14',['SKIN_OCEAN',['../common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4a46c4d701725e1333522005825abab4d8',1,'common.h']]],
+  ['skin_5for_15',['SKIN_OR',['../common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4a58f79e7284babf8dda440201f17e7b78',1,'common.h']]],
+  ['skin_5fplasma_16',['SKIN_PLASMA',['../common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4a86917d211886bbaa12c43a83fbfa7e6e',1,'common.h']]],
+  ['skin_5fprices_17',['SKIN_PRICES',['../render_8c.html#ae6bbc56f836d70ae98160aebe89990c2',1,'render.c']]],
+  ['skin_5frouge_18',['SKIN_ROUGE',['../common_8h.html#a46bd4351a960746b5ec9cfcac9ff96e4a901d2452c9a102e0be17fbacad7e7acb',1,'common.h']]],
+  ['skins_19',['SKINS',['../render_8c.html#a272f7650e6c3bd32ab709264220e69fd',1,'render.c']]],
+  ['stack_20',['stack',['../structCPUState.html#ab401e67ab2813c19ea4e36adc27192ec',1,'CPUState']]],
+  ['sunk_21',['sunk',['../structSkin.html#a9776e1cd128e616177f0704fc6443e65',1,'Skin']]]
+];
