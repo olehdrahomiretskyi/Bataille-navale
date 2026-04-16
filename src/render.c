@@ -47,7 +47,7 @@ static const Skin* SK(void){
     return &SKINS[g_skin];
 }
 
-static const char* SKIN_NAMES[NUM_SKINS]={"Ocean","Nuit","Arctique","Rouge","Or","Forêt","Plasma","Glace"};
+static const char* SKIN_NAMES[NUM_SKINS]={"Océan","Nuit","Arctique","Rouge","Or","Forêt","Plasma","Glace"};
 static const int   SKIN_PRICES[NUM_SKINS]={0,0,150,200,300,400,450,500};
 
 static Particle g_p[MAX_PARTICLES]; 
