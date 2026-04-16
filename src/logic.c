@@ -3,6 +3,12 @@
 static const int SCHEMA[10] = {4,3,3,2,2,2,1,1,1,1};
 
 
+/**
+ * @brief Réinitialise complètement le plateau de jeu.
+ * * Cette fonction parcourt l'intégralité de la grille pour vider chaque cellule
+ * et remet le compteur de navires restants à zéro.
+ * * @param b Un pointeur vers la structure GameBoard à réinitialiser.
+ */
 void ClearBoard(GameBoard* b) {
     for (int r = 0; r < GRID_SIZE; r++)
         for (int c = 0; c < GRID_SIZE; c++)
@@ -38,6 +44,15 @@ bool CanPlaceShip(GameBoard* b, int r, int c, int size, bool vertical) {
     return true;
 }
 
+/**
+ * @brief Place un navire sur le plateau de jeu.
+ * @param b Pointeur vers la structure GameBoard.
+ * @param r Indice de la ligne de départ (row).
+ * @param c Indice de la colonne de départ (column).
+ * @param size Nombre de cases occupées par le navire.
+ * @param vertical Si vrai (true), le navire s'étend sur les lignes (r+i). 
+ */
+
 void PlaceShip(GameBoard* b, int r, int c, int size, bool vertical) {
     for (int i = 0; i < size; i++) {
         b->cells[vertical ? r+i : r][vertical ? c : c+i] = CELL_SHIP;
@@ -66,6 +81,11 @@ void RandomPlaceFull(GameBoard* b) {
         }
     }
 }
+
+/**
+ * @brief Vérifie si le point (x, y) est dans le rectangle (inclusif).
+ * @return true si collision, sinon false.
+ */
 
 bool IsPointInRect(int x, int y, SDL_Rect rect) {
     return x >= rect.x && x <= rect.x+rect.w &&
@@ -141,6 +161,11 @@ static int MarkSunk(GameBoard* b, int r, int c) {
     return cnt;
 }
 
+/**
+ * @brief Parcourt la grille, marque les navires coulés et renvoie leur taille.
+ * @param b Pointeur vers le GameBoard.
+ * @return Taille du navire coulé ou 0 si aucun nouveau navire n'est coulé.
+ */
 int CheckSunkShips(GameBoard* b) {
     for (int r = 0; r < GRID_SIZE; r++)
         for (int c = 0; c < GRID_SIZE; c++)
@@ -149,6 +174,12 @@ int CheckSunkShips(GameBoard* b) {
     return 0;
 }
 
+
+/**
+ * @brief Initialise l'état de l'IA (compteurs et schéma des navires).
+ * @param cpu Pointeur vers la structure CPUState.
+ */
+
 void InitCPUState(CPUState* cpu) {
     cpu->size        = 0;
     cpu->remainCount = 10;
@@ -156,6 +187,10 @@ void InitCPUState(CPUState* cpu) {
         cpu->remain[i] = SCHEMA[i];
 }
 
+/**
+ * @brief Retire un navire de taille sz de la liste des navires restants du CPU.
+ * @param cpu Pointeur CPUState, @param sz Taille du navire à retirer.
+ */
 static void RemoveRemain(CPUState* cpu, int sz) {
     for (int i = 0; i < cpu->remainCount; i++) {
         if (cpu->remain[i] == sz) {
@@ -165,12 +200,21 @@ static void RemoveRemain(CPUState* cpu, int sz) {
     }
 }
 
-/* A cell is "unshot" if it has never been fired at */
+/**
+ * @brief Vérifie si une cellule n'a pas encore été ciblée.
+ * @return true si la cellule est vide ou contient un navire non touché.
+ */
 static bool Unshot(CellState s) {
     return s == CELL_EMPTY || s == CELL_SHIP;
 }
 
-/* Push a cell onto the target stack only if it is unshot and not a duplicate */
+/**
+ * @brief Ajoute une coordonnée à la pile de ciblage si elle est valide et unique.
+ * @param cpu état de l'IA.
+ * @param b plateau.
+ * @param r ligne. 
+ * @param c colonne.
+ */
 static void Push(CPUState* cpu, GameBoard* b, int r, int c) {
     if (r < 0 || r >= GRID_SIZE || c < 0 || c >= GRID_SIZE) 
         return;
@@ -187,8 +231,12 @@ static void Push(CPUState* cpu, GameBoard* b, int r, int c) {
     cpu->size++;
 }
 
-/* Pop the next valid (unshot) cell from the stack.
-   Returns true and sets outR/outC if found, false if stack exhausted. */
+/**
+ * @brief Récupère la prochaine coordonnée valide de la pile.
+ * @param r Pointeur de sortie ligne.
+ * @param c Pointeur de sortie colonne.
+ * @return true si une cible valide est trouvée, false si la pile est vide.
+ */
 static bool PopValid(CPUState* cpu, GameBoard* b, int* r, int* c) {
     while (cpu->size > 0) {
         cpu->size--;
@@ -203,9 +251,15 @@ static bool PopValid(CPUState* cpu, GameBoard* b, int* r, int* c) {
     return false;
 }
 
-/* After a hit at (r,c): push follow-up targets.
-   If we already have alignment info from adjacent CELL_HIT cells,
-   extend only along that axis. Otherwise push all 4 neighbours. */
+/**
+ * @brief Ajoute les cibles adjacentes à la pile après une touche.
+ * * Si un alignement (vertical ou horizontal) est détecté, la fonction pousse les 
+ * extrémités de la ligne. Sinon, elle pousse les 4 cases adjacentes.
+ * * @param cpu État de l'IA. 
+ * @param b Plateau.
+ * @param r Ligne. 
+ * @param c Colonne.
+ */
 static void PushTargets(CPUState* cpu, GameBoard* b, int r, int c) {
     bool upHit    = (r > 0           && b->cells[r-1][c] == CELL_HIT);
     bool downHit  = (r < GRID_SIZE-1 && b->cells[r+1][c] == CELL_HIT);
@@ -249,8 +303,13 @@ static void PushTargets(CPUState* cpu, GameBoard* b, int r, int c) {
     }
 }
 
-/* Safety net: if stack is empty but HIT cells remain on board,
-   rebuild stack from their unshot neighbours. */
+/**
+ * @brief Reconstruit la pile de ciblage à partir des touches (HIT) isolées.
+ * * Parcourt le plateau pour identifier les segments touchés et ajoute leurs 
+ * voisins non explorés à la pile. Sert de sécurité si la pile devient vide.
+ * * @param cpu état de l'IA.
+ * @param b plateau de jeu.
+ */
 static void RecoverFromOrphanedHits(CPUState* cpu, GameBoard* b) {
     cpu->size = 0;
     for (int r = 0; r < GRID_SIZE; r++){
@@ -266,9 +325,14 @@ static void RecoverFromOrphanedHits(CPUState* cpu, GameBoard* b) {
 }
 
 /**
- * @brief Ajoute des cibles potentielles après un tir réussi.
- * * Si deux touches sont alignées, l'IA privilégie l'axe (horizontal ou vertical) 
- * pour finir de couler le navire plus rapidement.
+ * @brief Calcule la meilleure case à cibler selon une carte de probabilité.
+ * * Analyse les configurations possibles pour chaque navire restant afin de créer 
+ * une carte de chaleur. Applique un filtre de parité (damier) si le plus petit 
+ * navire restant est de taille >= 2 pour optimiser la recherche.
+ * * @param b plateau de jeu.
+ * @param cpu état de l'IA contenant la liste des navires restants.
+ * @param outR pointeur de sortie pour la ligne optimale trouvée.
+ * @param outC pointeur de sortie pour la colonne optimale trouvée.
  */
 static void BestHuntCell(GameBoard* b, CPUState* cpu, int* outR, int* outC) {
     int map[GRID_SIZE][GRID_SIZE];
@@ -373,7 +437,14 @@ static void BestHuntCell(GameBoard* b, CPUState* cpu, int* outR, int* outC) {
     }
 }
 
-/* Pick a random unshot cell for FACILE/NORMAL hunt */
+/**
+ * @brief Sélectionne aléatoirement une case non encore ciblée.
+ * * Crée une liste de toutes les cellules éligibles (Unshot) et en choisit une 
+ * au hasard. Utilisé pour les modes de difficulté FACILE et NORMAL.
+ * * @param b plateau de jeu.
+ * @param outR pointeur de sortie pour la ligne choisie.
+ * @param outC pointeur de sortie pour la colonne choisie.
+ */
 static void RandomUnshot(GameBoard* b, int* outR, int* outC) {
     int pool[GRID_SIZE*GRID_SIZE][2]; 
     int pn = 0;
@@ -393,6 +464,17 @@ static void RandomUnshot(GameBoard* b, int* outR, int* outC) {
         *outC = pool[idx][1];
     }
 }
+
+/**
+ * @brief Gère le tour de l'IA selon la difficulté choisie.
+ * * Détermine la cible (aléatoire, pile de ciblage ou carte de probabilité), 
+ * traite le résultat du tir (touche, coulé ou manqué) et met à jour l'état 
+ * du jeu ainsi que le tour des joueurs.
+ * * @param player plateau du joueur.
+ * @param playerTurn pointeur vers le booléen contrôlant le tour du joueur.
+ * @param cpu état interne de l'IA.
+ * @param diff niveau de difficulté (FACILE, NORMAL, EXPERT).
+ */
 
 void ProcessCPUTurn(GameBoard* player, bool* playerTurn,
                     CPUState* cpu, AIDifficulty diff) {
