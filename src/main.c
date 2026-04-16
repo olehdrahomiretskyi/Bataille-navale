@@ -109,7 +109,7 @@ int main(int argc,char* argv[]){
     SetSkin(sk);
 
     const char* dnames[]={"FACILE","NORMAL","EXPERT"};
-    const char* snames[]={"Ocean","Nuit","Arctique","Rouge","Or","Forêt","Plasma","Glace"};
+    const char* snames[]={"Océan","Nuit","Arctique","Rouge","Or","Forêt","Plasma","Glace"};
 
     int bx=658,bw=430,bh=64,bg2=16;
     Button bPlay,bShop,bSettings,bRecords,bQuit;
@@ -122,7 +122,7 @@ int main(int argc,char* argv[]){
     int spx=WINDOW_W/2-220,spy=200;
     Button bDiff,bSkin,bSettBack;
     MkBtn(&bDiff,    spx,spy,    440,58, 45,55,140,"Difficulté: NORMAL");
-    MkBtn(&bSkin,    spx,spy+110,440,58, 80,55,120,"Thème actif: Ocean");
+    MkBtn(&bSkin,    spx,spy+110,440,58, 80,55,120,"Thème actif: Océan");
     MkBtn(&bSettBack,spx,spy+320,440,58, 60,50,110,"< RETOUR");
 
     static const int SKIN_PRICES[NUM_SKINS]={0,0,150,200,300,400,450,500};
@@ -407,33 +407,40 @@ int main(int argc,char* argv[]){
 
         if(mode==MODE_SPLASH){
             DrawSplash(ren,font,SDL_GetTicks());
-        } else if(mode==MODE_MAINMENU){
+        } 
+        else if(mode==MODE_MAINMENU){
             DrawMainMenu(ren,font,&bPlay,&bShop,&bSettings,&bRecords,&bQuit,stats.coins);
-        } else if(mode==MODE_SETTINGS){
+        } 
+        else if(mode==MODE_SETTINGS){
             DrawMainMenu(ren,font,&bPlay,&bShop,&bSettings,&bRecords,&bQuit,stats.coins);
             DrawSettings(ren,font,&bDiff,&bSkin,&bSettBack);
-        } else if(mode==MODE_SHOP){
+        } 
+        else if(mode==MODE_SHOP){
             DrawMainMenu(ren,font,&bPlay,&bShop,&bSettings,&bRecords,&bQuit,stats.coins);
             DrawShop(ren,font,&stats,sk,pBuy,pSel,&bShopBack);
-        } else if(mode==MODE_PLACEMENT){
+        } 
+        else if(mode==MODE_PLACEMENT){
             SDL_SetRenderDrawColor(ren,12,16,28,255); SDL_RenderClear(ren);
             DrawText(ren,font,"PLACEMENT DES NAVIRES",P_OFFSET_X+30,6,(SDL_Color){200,200,200,255});
             DrawBoard(ren,font,&player,P_OFFSET_X,OFFSET_Y,false,false);
             if(curIdx<10)
                 DrawPlacementPreview(ren,&player,P_OFFSET_X,OFFSET_Y,hR,hC,ships[curIdx],isV);
             DrawPlacementUI(ren,font,curIdx,&bRand,&bReset,&bPret,&bPlaceBack);
-        } else if(mode==MODE_GAME){
+        } 
+        else if(mode==MODE_GAME){
             /* Dim the board that is NOT active */
             DrawBoard(ren,font,&player,P_OFFSET_X,OFFSET_Y,false,!playerTurn);
             DrawBoard(ren,font,&enemy, E_OFFSET_X,OFFSET_Y,true,  false);
             DrawGameUI(ren,font,&player,&enemy,playerTurn,playerMoves,gameStart,stats.coins);
             DrawButton(ren,font,&bExit);
-        } else if(mode==MODE_GAMEOVER){
+        } 
+        else if(mode==MODE_GAMEOVER){
             DrawBoard(ren,font,&player,P_OFFSET_X,OFFSET_Y,false,false);
             DrawBoard(ren,font,&enemy, E_OFFSET_X,OFFSET_Y,false,false);
             DrawGameUI(ren,font,&player,&enemy,playerTurn,playerMoves,gameStart,stats.coins);
             DrawGameOver(ren,font,playerWon,playerMoves,lastCoinsEarned,&bReplay,&bMenu2);
-        } else if(mode==MODE_RECORDS){
+        } 
+        else if(mode==MODE_RECORDS){
             DrawMainMenu(ren,font,&bPlay,&bShop,&bSettings,&bRecords,&bQuit,stats.coins);
             DrawRecords(ren,font,&stats,&bRecBack);
         }
